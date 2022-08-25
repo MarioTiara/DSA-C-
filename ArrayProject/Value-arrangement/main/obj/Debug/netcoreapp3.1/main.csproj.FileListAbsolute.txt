@@ -1,0 +1,14 @@
+E:\Personal\Learn-Data-Structure\ArrayProject\Value-arrangement\main\bin\Debug\netcoreapp3.1\main.exe
+E:\Personal\Learn-Data-Structure\ArrayProject\Value-arrangement\main\bin\Debug\netcoreapp3.1\main.deps.json
+E:\Personal\Learn-Data-Structure\ArrayProject\Value-arrangement\main\bin\Debug\netcoreapp3.1\main.runtimeconfig.json
+E:\Personal\Learn-Data-Structure\ArrayProject\Value-arrangement\main\bin\Debug\netcoreapp3.1\main.runtimeconfig.dev.json
+E:\Personal\Learn-Data-Structure\ArrayProject\Value-arrangement\main\bin\Debug\netcoreapp3.1\main.dll
+E:\Personal\Learn-Data-Structure\ArrayProject\Value-arrangement\main\bin\Debug\netcoreapp3.1\main.pdb
+E:\Personal\Learn-Data-Structure\ArrayProject\Value-arrangement\main\obj\Debug\netcoreapp3.1\main.csproj.AssemblyReference.cache
+E:\Personal\Learn-Data-Structure\ArrayProject\Value-arrangement\main\obj\Debug\netcoreapp3.1\main.GeneratedMSBuildEditorConfig.editorconfig
+E:\Personal\Learn-Data-Structure\ArrayProject\Value-arrangement\main\obj\Debug\netcoreapp3.1\main.AssemblyInfoInputs.cache
+E:\Personal\Learn-Data-Structure\ArrayProject\Value-arrangement\main\obj\Debug\netcoreapp3.1\main.AssemblyInfo.cs
+E:\Personal\Learn-Data-Structure\ArrayProject\Value-arrangement\main\obj\Debug\netcoreapp3.1\main.csproj.CoreCompileInputs.cache
+E:\Personal\Learn-Data-Structure\ArrayProject\Value-arrangement\main\obj\Debug\netcoreapp3.1\main.dll
+E:\Personal\Learn-Data-Structure\ArrayProject\Value-arrangement\main\obj\Debug\netcoreapp3.1\main.pdb
+E:\Personal\Learn-Data-Structure\ArrayProject\Value-arrangement\main\obj\Debug\netcoreapp3.1\main.genruntimeconfig.cache
