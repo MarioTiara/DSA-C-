@@ -18,7 +18,7 @@ void swap(int *x, int*y){
 
 
 int LinierSearch(struct Array *arr, int key){
-
+    
     int i;
     for(i=0; i<arr->length; i++){
         if(key==arr->A[i]){
