@@ -45,21 +45,29 @@ void Rearrange (struct Array *arr){
             swap(&arr->A[i], &arr->A[j]);
         }else {
             break;
-        }
-        
-
-        
-        
+        }       
     }
     
+};
+
+void Rearrange2(struct Array *arr){
+    int pivot=0, i=-1;
+    for (int j=0; j<arr->length;j++){
+        if(arr->A[j]<pivot){
+            i++;
+            if(i!=j){
+                swap(arr->A[i], arr->A[j]);
+            }
+        }
+    }
 };
 
 
 int main(){
     struct Array arr= {{2,-3,15,10,-15,-7}, 10,6};
 
-    Rearrange(&arr);
+    Rearrange2(&arr);
   
-    //Display(arr);
+    Display(arr);
     return 0;
 }
