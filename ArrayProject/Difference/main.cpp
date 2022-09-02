@@ -16,10 +16,6 @@ void Display (struct Array arr){
     }
 };
 
-
-
-
-
 struct Array Difference (struct Array *arr1, struct Array *arr2 ){
    int i=0, j=0, k=0;
    struct Array arr3;
