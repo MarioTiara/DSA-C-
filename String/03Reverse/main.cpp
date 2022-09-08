@@ -2,13 +2,9 @@
 
 using namespace std;
 
-int main(){
-    cout<<"Reverse string"<<endl;
-
-    char A[]= "python";
-    char B[7];
+char * Reverse (char A[]){
+    static char B[7];
     int i=0;
-
     //get A lengt
     int j;
     while(A[i] !='\0') i++;
@@ -17,8 +13,14 @@ int main(){
         B[j]=A[i-1];
     }
     B[j]='\0';
+    return B;
+};
+
+int main(){
+    cout<<"Reverse string"<<endl;
+
+    char A[]= "python";
+    char *B= Reverse(A);
     cout<<B<<endl;
-    
-    
     
 }
