@@ -16,11 +16,22 @@ char * Reverse (char A[]){
     return B;
 };
 
+void Reverse2 (string& str){
+  int n=str.length();
+  for(int i=0 ; i<n; i++, n--){
+    swap(str[i], str[n]);
+  } 
+};
+
 int main(){
     cout<<"Reverse string"<<endl;
+    string str="python";
+    Reverse2(str);
+    cout<<str;
 
-    char A[]= "python";
-    char *B= Reverse(A);
-    cout<<B<<endl;
+    
+    
+    
+   
     
 }
