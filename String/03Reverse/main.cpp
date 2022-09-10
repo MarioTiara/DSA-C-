@@ -28,10 +28,4 @@ int main(){
     string str="python";
     Reverse2(str);
     cout<<str;
-
-    
-    
-    
-   
-    
 }
