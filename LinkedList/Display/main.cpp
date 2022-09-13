@@ -34,10 +34,21 @@ void Display(struct Node * p){
     }
 };
 
+void RecDisplay(struct Node * p){
+    if (p==nullptr){
+        return;
+    }else {
+        cout<<p->data<<endl;
+        p=p->next;
+        RecDisplay(p);
+    }
+}
+
 int main(){
     int A[]={3,5,7,10,15};
     create(A,5);
-    Display(first);
+    ///Display(first);
+    RecDisplay(first);
 
 
     return 0;
