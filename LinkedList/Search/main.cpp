@@ -36,9 +36,18 @@ struct Node * Search(struct Node * p, int key){
 
   return NULL;
 };
+
+struct Node * search(struct Node * p, int key){
+    if (p==nullptr){
+        return NULL;
+    }if (key==p->data){
+        return p;
+    }
+    return Search(p->next, key);
+}
 int main(){
     int A[]={3,5,7,10,15};
     create(A,5);
-    cout<<Search(first, 15)->data<<endl;
+    cout<<search(first, 15)->data<<endl;
     return 0;
 }
