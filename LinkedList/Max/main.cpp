@@ -1,7 +1,6 @@
 #include <iostream>
 
 using namespace std;
-
 struct Node {
     int data;
     struct Node * next;
@@ -27,29 +26,21 @@ void create (int A[], int n){
     }
 };
 
-//using loop;
-int Sum(struct Node * p){
-    int sum=0;
-    while(p==nullptr){
-        sum=sum+p->data;
+int Max(struct Node * p){
+    int max=INT32_MIN;
+    while (p){
+        if (p->data>max){
+            max=p->data;
+        }
         p=p->next;
     }
-    return sum;
-};
-//uisng recursive
 
-int sum(struct Node * p){
-    if (p==nullptr){
-        return 0;
-    }else {
-        sum(p->next)+p->data;
-    }
-};
+    return max;
+}
 
 int main(){
     int A[]={3,5,7,10,15};
     create(A,5);
-    cout<<"Sum Using Loop: "<<Sum(first);
-    cout<<"Sum Using Recursive: "<<sum(first);
+    cout<<Max(first)<<endl;
     return 0;
 }
