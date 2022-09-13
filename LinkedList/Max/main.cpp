@@ -38,9 +38,21 @@ int Max(struct Node * p){
     return max;
 }
 
+int max (struct Node * p){
+    static int m=INT32_MIN;
+    if (p==nullptr){
+        return m;
+    }else {
+        if (p->data>m){
+            m=p->data;
+        }
+        return max(p->next);
+    }
+}
+
 int main(){
-    int A[]={3,5,7,10,15};
+    int A[]={3,5,7,90,15};
     create(A,5);
-    cout<<Max(first)<<endl;
+    cout<<max(first)<<endl;
     return 0;
 }
