@@ -36,12 +36,21 @@ int Sum(struct Node * p){
     }
     return sum;
 };
+//uisng recursive
 
+int sum(struct Node * p){
+    if (p==nullptr){
+        return 0;
+    }else {
+        sum(p->next)+p->data;
+    }
+};
 
 int main(){
     int A[]={3,5,7,10,15};
     create(A,5);
-
+    cout<<"Sum Using Loop: "<<Sum(first);
+    cout<<"Sum Using Recursive: "<<sum(first);
 
     return 0;
 }
