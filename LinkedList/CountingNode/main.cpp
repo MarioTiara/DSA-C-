@@ -36,10 +36,18 @@ int Count(struct Node * p){
     return C;
 };
 
+//using Recursive
+int Count2(struct Node * p){
+    if (p==nullptr){
+        return 0;
+    }else {
+        return Count2(p->next)+1;
+    }
+};
 int main(){
 
     int A[]={3,5,7,10,15};
     create(A,5);
-    cout<<Count(first);
+    cout<<Count2(first);
     return 0;
 }
