@@ -45,16 +45,18 @@ struct Node * search(struct Node * p, int key){
     }
     return Search(p->next, key);
 }
+
+//using move to front
 struct Node * ImprovedSerach(struct Node *p, int key){
     Node * q = nullptr;
     while(p!=nullptr){
+        q=p;
         if (key==p->data){
             q->next=p->next;
             p->next=first;
             first=p;
-            return first;
+            return p;
         }
-        q=p;
         p=p->next;
     }
 
