@@ -45,9 +45,27 @@ struct Node * search(struct Node * p, int key){
     }
     return Search(p->next, key);
 }
+struct Node * ImprovedSerach(struct Node *p, int key){
+    Node * q = nullptr;
+    while(p!=nullptr){
+        if (key==p->data){
+            q->next=p->next;
+            p->next=first;
+            first=p;
+            return first;
+        }
+        q=p;
+        p=p->next;
+    }
+
+
+    
+};
+
+
 int main(){
-    int A[]={3,5,7,10,15};
+    int A[]={8,3,7,12,9};
     create(A,5);
-    cout<<search(first, 15)->data<<endl;
+    cout<<ImprovedSerach(first, 12)->data<<endl;
     return 0;
 }
