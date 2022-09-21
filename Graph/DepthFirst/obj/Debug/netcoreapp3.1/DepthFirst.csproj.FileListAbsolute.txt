@@ -1,0 +1,14 @@
+E:\Personal\Learn-Data-Structure\Graph\DepthFirst\bin\Debug\netcoreapp3.1\DepthFirst.exe
+E:\Personal\Learn-Data-Structure\Graph\DepthFirst\bin\Debug\netcoreapp3.1\DepthFirst.deps.json
+E:\Personal\Learn-Data-Structure\Graph\DepthFirst\bin\Debug\netcoreapp3.1\DepthFirst.runtimeconfig.json
+E:\Personal\Learn-Data-Structure\Graph\DepthFirst\bin\Debug\netcoreapp3.1\DepthFirst.runtimeconfig.dev.json
+E:\Personal\Learn-Data-Structure\Graph\DepthFirst\bin\Debug\netcoreapp3.1\DepthFirst.dll
+E:\Personal\Learn-Data-Structure\Graph\DepthFirst\bin\Debug\netcoreapp3.1\DepthFirst.pdb
+E:\Personal\Learn-Data-Structure\Graph\DepthFirst\obj\Debug\netcoreapp3.1\DepthFirst.csproj.AssemblyReference.cache
+E:\Personal\Learn-Data-Structure\Graph\DepthFirst\obj\Debug\netcoreapp3.1\DepthFirst.GeneratedMSBuildEditorConfig.editorconfig
+E:\Personal\Learn-Data-Structure\Graph\DepthFirst\obj\Debug\netcoreapp3.1\DepthFirst.AssemblyInfoInputs.cache
+E:\Personal\Learn-Data-Structure\Graph\DepthFirst\obj\Debug\netcoreapp3.1\DepthFirst.AssemblyInfo.cs
+E:\Personal\Learn-Data-Structure\Graph\DepthFirst\obj\Debug\netcoreapp3.1\DepthFirst.csproj.CoreCompileInputs.cache
+E:\Personal\Learn-Data-Structure\Graph\DepthFirst\obj\Debug\netcoreapp3.1\DepthFirst.dll
+E:\Personal\Learn-Data-Structure\Graph\DepthFirst\obj\Debug\netcoreapp3.1\DepthFirst.pdb
+E:\Personal\Learn-Data-Structure\Graph\DepthFirst\obj\Debug\netcoreapp3.1\DepthFirst.genruntimeconfig.cache
