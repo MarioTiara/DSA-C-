@@ -18,7 +18,6 @@ namespace dotnet
                  Dictionary<char, List<char>> graph=buildGraph(edges);
                  string output = JsonConvert.SerializeObject(graph);
                  Console.WriteLine(output);
-                 //HashSet<char> visited= new HashSet<char>();
                  Console.WriteLine(hasPath(graph,'i','n',new HashSet<char>()));
         }
 

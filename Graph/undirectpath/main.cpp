@@ -2,18 +2,19 @@
 #include<map>
 #include<vector>
 #include<queue>
+#include <set>
 using namespace std;
 
 map<char,vector<char>> buildGraph(vector<vector<char>> edges){
     map<char, vector<char>> graph;
     for (vector<char> edge:edges){
         if(!graph.count(edge[0])){
-            cout<<"edge[0]"<<endl;
+            //cout<<"edge[0]"<<endl;
             graph[edge[0]]=vector<char>();
         } 
         if(!graph.count(edge[1])) {
             graph[edge[1]]=vector<char>();
-             cout<<"edge[1]"<<endl;
+             //cout<<"edge[1]"<<endl;
         }
         graph[edge[0]].push_back(edge[1]);
         graph[edge[1]].push_back(edge[0]);
@@ -24,9 +25,13 @@ map<char,vector<char>> buildGraph(vector<vector<char>> edges){
 
 
 bool hasPath(map<char,vector<char>> graph, char src, char dst){
+    static set<char> visited;
     if (src==dst){
         return true; 
     }
+    if (visited.count(src)) return false;
+    visited.insert(src);
+
     for (char neighbour:graph[src]){
         if ( hasPath(graph,neighbour, dst)==true){
             return true;
@@ -43,6 +48,7 @@ int main(){
         {'o','n'}
     };
     map<char,vector<char>> graph=buildGraph(edges);
+    cout<<hasPath(graph,'i','n');
     
     return 0;
 }
