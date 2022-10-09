@@ -20,7 +20,7 @@ namespace Trees
             tree.insert(15);
             tree.insert(8);
 
-            tree.printPreOrder();
+            tree.printPostOrder();
         }
     }
 }

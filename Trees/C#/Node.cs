@@ -45,6 +45,16 @@ namespace Trees
                right.printPreOrder();
             }
         }
+
+        public void printPostOrder(){
+            if (left!=null){
+               left.printPostOrder();
+            }
+            if (right!=null){
+               right.printPostOrder();
+            }
+            Console.WriteLine(data);
+        }
         
     }
 }
