@@ -6,7 +6,13 @@ namespace Trees
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Node tree=new Node(10);
+
+            tree.insert(5);
+            tree.insert(15);
+            tree.insert(8);
+
+            tree.printInorder();
         }
     }
 }
