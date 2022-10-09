@@ -7,18 +7,23 @@ namespace dotnet
     {
         static void Main(string[] args)
         {
-              List<List<char>> edges= new List<List<char>>{
-                new List<char>{'i','j'},
-                new List<char>{'k','i'},
-                new List<char>{'m','k'},
-                new List<char>{'k','l'},
-                new List<char>{'o','n'}
-                };
 
-                 Dictionary<char, List<char>> graph=buildGraph(edges);
-                 string output = JsonConvert.SerializeObject(graph);
-                 Console.WriteLine(output);
-                 Console.WriteLine(hasPath(graph,'i','n',new HashSet<char>()));
+            String S="aabb";
+           // Console.WriteLine((S.Length-1)/2);
+             Console.WriteLine(FindminimumInsertPalindrome(S));
+            //Console.WriteLine((s.Length)/2);
+            //   List<List<char>> edges= new List<List<char>>{
+            //     new List<char>{'i','j'},
+            //     new List<char>{'k','i'},
+            //     new List<char>{'m','k'},
+            //     new List<char>{'k','l'},
+            //     new List<char>{'o','n'}
+            //     };
+
+            //      Dictionary<char, List<char>> graph=buildGraph(edges);
+            //      string output = JsonConvert.SerializeObject(graph);
+            //      Console.WriteLine(output);
+            //      Console.WriteLine(hasPath(graph,'i','n',new HashSet<char>()));
         }
 
         static bool hasPath (Dictionary<char, List<char>> graph, char src, char dst, HashSet<char> visited){
@@ -45,6 +50,27 @@ namespace dotnet
                 graph[edge[1]].Add(edge[0]); 
             }  
             return graph;
+        }
+
+
+        static int FindminimumInsertPalindrome(string S){
+            int min=0;
+            for (int i=0; i<S.Length;i++){
+                if (FindMiddle(S)==i){
+                    min+=1;
+                    break;
+                }else{
+                    if (S[i]!=S[(S.Length-1)-i]){
+                        min=min+2;
+                    }
+                }
+            }
+
+            return min;
+        }
+
+        static int FindMiddle(string S){
+            return (S.Length-1)/2;
         }
 
        

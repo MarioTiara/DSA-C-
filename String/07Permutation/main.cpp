@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <vector>
 using namespace std;
 
 void perm (char s[], int k){
@@ -20,9 +20,28 @@ void perm (char s[], int k){
         }
     }
 };
+void backtrack(vector<vector<int>> &res, vector<int>&nums, vector<int>&permutation, vector<bool> &used){
+    if (permutation.size()==nums.size()){
+        res.push_back(permutation);
+        return;
+    }
+    for (int i=0; i<nums.size(); i++){
+        if (!used[i]){
+            used[i]=true;
+            permutation.push_back(nums[i]);
+            backtrack(res, nums, permutation, used);
+            used[i]=false;
+            permutation.pop_back();
+        }
+    }
+};
 
 int main(){
-    char s[]="abc";
-    perm(s,0);
-    return 0;
-}
+   vector<int> nums={1,2,3};
+   vector<vector<int>> res;
+   vector<int> permutation;
+   vector<bool> used;
+   backtrack(res,nums,permutation,used);
+   return 0;
+};
+
