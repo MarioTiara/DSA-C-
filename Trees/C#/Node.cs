@@ -77,6 +77,24 @@ namespace Trees
                
             }
         }
+
+        static private Stack<Node> stack = new Stack<Node>();
+
+        public void RdepthFirst(Node root){
+             stack.Push(root);
+             if (stack.Count<0) return;
+             else{
+                Node current =stack.Pop();
+                Console.WriteLine(current.value);
+                if (current.left!=null){
+                    RdepthFirst(current.left);
+                }
+                if (current.right!=null){
+                    RdepthFirst(current.right);
+                }
+                
+             }
+        }
         
     }
 }
