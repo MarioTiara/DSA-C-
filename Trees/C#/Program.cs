@@ -19,7 +19,7 @@ namespace Trees
                B.right=E;
                C.right=F;
 
-               A.RdepthFirst_Postorder(A);
+               A.RdepthFirst_Inorder(A);
 
 
         }

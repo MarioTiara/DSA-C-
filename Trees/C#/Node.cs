@@ -113,6 +113,26 @@ namespace Trees
                 
              }
         }
+
+        public void RdepthFirst_Inorder(Node root){
+             stack.Push(root);
+             if (stack.Count<0) return;
+             else{
+                Node current =stack.Pop();
+               
+                if (current.left!=null){
+                    RdepthFirst_Inorder(current.left);
+                }
+                Console.WriteLine(current.value);
+                if (current.right!=null){
+                    RdepthFirst_Inorder(current.right);
+                }
+
+                 
+                
+             }
+        }
+        
         
     }
 }
