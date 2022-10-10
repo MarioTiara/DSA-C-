@@ -80,18 +80,36 @@ namespace Trees
 
         static private Stack<Node> stack = new Stack<Node>();
 
-        public void RdepthFirst(Node root){
+        public void RdepthFirst_Preorder(Node root){
              stack.Push(root);
              if (stack.Count<0) return;
              else{
                 Node current =stack.Pop();
                 Console.WriteLine(current.value);
                 if (current.left!=null){
-                    RdepthFirst(current.left);
+                    RdepthFirst_Preorder(current.left);
                 }
                 if (current.right!=null){
-                    RdepthFirst(current.right);
+                    RdepthFirst_Preorder(current.right);
                 }
+                
+             }
+        }
+
+        public void RdepthFirst_Postorder(Node root){
+             stack.Push(root);
+             if (stack.Count<0) return;
+             else{
+                Node current =stack.Pop();
+               
+                if (current.left!=null){
+                    RdepthFirst_Postorder(current.left);
+                }
+                if (current.right!=null){
+                    RdepthFirst_Postorder(current.right);
+                }
+
+                 Console.WriteLine(current.value);
                 
              }
         }
