@@ -1,13 +1,19 @@
 using System;
+using System.Collections.Generic;
 namespace Trees
 {
     public class Node
     {   
         int data;
-        Node right, left;
+        char value;
+        public Node right, left;
 
-        public Node (int value){
-            data=value;
+        public Node (int data){
+            this.data=data;
+        }
+
+        public Node(char value){
+            this.value=value;
         }
 
         public void insert(int value){
@@ -54,6 +60,22 @@ namespace Trees
                right.printPostOrder();
             }
             Console.WriteLine(data);
+        }
+
+        public void depthFirst(Node root){
+            Stack<Node> stack= new Stack<Node>();
+            stack.Push(root);
+            while(stack.Count>0){
+                Node current= stack.Pop();
+                Console.WriteLine(current.value);
+                 if (current.right!=null){
+                    stack.Push(current.right);
+                }
+                if (current.left!=null){
+                    stack.Push(current.left);
+                }
+               
+            }
         }
         
     }

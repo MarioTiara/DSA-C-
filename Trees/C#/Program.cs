@@ -6,21 +6,22 @@ namespace Trees
     {
         static void Main(string[] args)
         {
-                  //   10
-                  //   / \
-                  //  /   \
-                  // 5     15
-                  //  \
-                  //   \
-                  //    8
+               Node A=new Node('a');
+               Node B= new Node('b');
+               Node C= new Node('c');
+               Node D = new Node('d');
+               Node E = new Node('e');
+               Node F = new Node('f');
 
-            Node tree=new Node(10);
+               A.left=B;
+               A.right=C;
+               B.left=D;
+               B.right=E;
+               C.right=F;
 
-            tree.insert(5);
-            tree.insert(15);
-            tree.insert(8);
+               A.depthFirst(A);
 
-            tree.printPostOrder();
+
         }
     }
 }
