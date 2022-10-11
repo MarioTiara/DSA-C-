@@ -230,11 +230,25 @@ namespace Trees
         }
 
 
-         public int RMaxnvalue(Node root){
+         public int RMaxvalue(Node root){
             if (root ==null) return int.MinValue;
-            int leftMin= RMaxnvalue(root.left);
-            int rigtMin= RMaxnvalue(root.right);
+            int leftMin= RMaxvalue(root.left);
+            int rigtMin= RMaxvalue(root.right);
             return Math.Max(root.data, Math.Max(leftMin,rigtMin));
+        }
+
+        public int Maxvalue(Node root){
+            Stack<Node> stack = new Stack<Node>();
+            stack.Push(root);
+            int Maxvalue = int.MinValue;
+            while(stack.Count>0){
+                Node current = stack.Pop();
+                Maxvalue=Math.Max(Maxvalue,current.data);
+                if (current.left!=null) stack.Push(current.left);
+                if (current.right!=null) stack.Push(current.right);
+            }
+
+            return Maxvalue;
         }
 
 
