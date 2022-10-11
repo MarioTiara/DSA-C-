@@ -17,7 +17,7 @@ namespace Trees
                Node A=new Node(3);
                Node B= new Node(11);
                Node C= new Node(4);
-               Node D = new Node(-12);
+               Node D = new Node(140);
                Node E = new Node(-9);
                Node F = new Node(1);
 
@@ -27,7 +27,7 @@ namespace Trees
                B.right=E;
                C.right=F;
 
-               Console.WriteLine(A.RMinvalue(A));
+               Console.WriteLine(A.RMaxnvalue(A));
 
 
         }

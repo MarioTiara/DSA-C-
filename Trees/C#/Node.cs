@@ -229,6 +229,15 @@ namespace Trees
             return Math.Min(root.data, Math.Min(leftMin,rigtMin));
         }
 
+
+         public int RMaxnvalue(Node root){
+            if (root ==null) return int.MinValue;
+            int leftMin= RMaxnvalue(root.left);
+            int rigtMin= RMaxnvalue(root.right);
+            return Math.Max(root.data, Math.Max(leftMin,rigtMin));
+        }
+
+
         
         
         
