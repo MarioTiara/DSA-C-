@@ -19,7 +19,7 @@ namespace Trees
                B.right=E;
                C.right=F;
 
-               A.RBreadtFirstTravers(A);
+               Console.WriteLine(A.Include (A, 'h'));
 
 
         }

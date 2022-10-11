@@ -167,6 +167,22 @@ namespace Trees
             }
         }
 
+
+        public bool Include (Node root, Char target){
+            Queue<Node> queue = new Queue<Node>();
+            queue.Enqueue(root);
+            while(queue.Count>0){
+                Node current = queue.Dequeue();
+                if (current.value==target){
+                    return true;
+                }
+                if (current.left!=null) queue.Enqueue(current.left);
+                if (current.right!=null) queue.Enqueue(current.right);
+            }
+            
+            return false;
+        }
+
         
         
         
