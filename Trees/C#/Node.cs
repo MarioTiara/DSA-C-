@@ -203,6 +203,11 @@ namespace Trees
             return sum;
         }
 
+        public int RSum (Node root){
+            if (root ==null) return 0;
+            return root.data + RSum(root.left) + RSum(root.right);
+        }
+
         
         
         

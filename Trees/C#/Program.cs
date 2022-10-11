@@ -27,7 +27,7 @@ namespace Trees
                B.right=E;
                C.right=F;
 
-               Console.WriteLine(A.Sum (A));
+               Console.WriteLine(A.RSum (A));
 
 
         }
