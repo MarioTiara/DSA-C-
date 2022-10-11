@@ -19,7 +19,7 @@ namespace Trees
                B.right=E;
                C.right=F;
 
-               Console.WriteLine(A.Include (A, 'h'));
+               Console.WriteLine(A.RIncludes (A, 'h'));
 
 
         }

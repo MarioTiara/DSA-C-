@@ -183,6 +183,12 @@ namespace Trees
             return false;
         }
 
+        public bool RIncludes(Node root, Char target){
+            if (root==null) return false;
+            if (root.value==target) return true;
+            return RIncludes(root.left, target) || RIncludes(root.right, target);
+        }
+
         
         
         
