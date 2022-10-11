@@ -189,6 +189,20 @@ namespace Trees
             return RIncludes(root.left, target) || RIncludes(root.right, target);
         }
 
+        public int Sum (Node root){
+            int sum=0;
+            Stack<Node> stack = new Stack<Node>();
+            stack.Push(root);
+            while(stack.Count>0){
+                Node current = stack.Pop();
+                sum+=current.data;
+                if (current.left!=null) stack.Push(current.left);
+                if (current.right!=null) stack.Push(current.right);
+            }
+
+            return sum;
+        }
+
         
         
         
