@@ -132,6 +132,24 @@ namespace Trees
                 
              }
         }
+
+
+        public void BreadtFirstTravers(Node start){
+            Queue<Node> queue= new Queue<Node>();
+            queue.Enqueue(start);
+            while(queue.Count>0){
+                Node current=queue.Dequeue();
+                Console.WriteLine(current.value);
+                if (current.left!=null){
+                    queue.Enqueue(current.left);
+                }
+                if (current.right!=null){
+                    queue.Enqueue(current.right);
+                }
+            }
+        }
+
+        
         
         
     }
