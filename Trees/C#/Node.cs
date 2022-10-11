@@ -218,8 +218,15 @@ namespace Trees
                 if (current.left!=null) stack.Push(current.left);
                 if (current.right!=null) stack.Push(current.right);
             }
-
             return min;
+        }
+
+
+        public int RMinvalue(Node root){
+            if (root ==null) return int.MaxValue;
+            int leftMin= RMinvalue(root.left);
+            int rigtMin= RMinvalue(root.right);
+            return Math.Min(root.data, Math.Min(leftMin,rigtMin));
         }
 
         
