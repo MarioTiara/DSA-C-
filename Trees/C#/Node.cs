@@ -149,6 +149,24 @@ namespace Trees
             }
         }
 
+        public Queue<Node> queue= new Queue<Node>();
+        public void RBreadtFirstTravers(Node start){
+            queue.Enqueue(start);
+            if (queue.Count<=0){
+                return;
+            }
+            else{
+                Node current = queue.Dequeue();
+                Console.WriteLine(current.value);
+                if (current.left!=null){
+                    RBreadtFirstTravers(current.left);
+                }
+                if (current.right!=null){
+                    RBreadtFirstTravers(current.right);
+                }
+            }
+        }
+
         
         
         
