@@ -208,6 +208,20 @@ namespace Trees
             return root.data + RSum(root.left) + RSum(root.right);
         }
 
+        public int Minvalue(Node root){
+            int min=int.MaxValue;
+            Stack<Node> stack = new Stack<Node>();
+            stack.Push(root);
+            while(stack.Count>0){
+                Node current = stack.Pop();
+                if (current.data<min) min=current.data;
+                if (current.left!=null) stack.Push(current.left);
+                if (current.right!=null) stack.Push(current.right);
+            }
+
+            return min;
+        }
+
         
         
         

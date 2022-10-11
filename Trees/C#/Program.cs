@@ -14,11 +14,11 @@ namespace Trees
             //    Node F = new Node('f');
 
 
-              Node A=new Node(3);
+               Node A=new Node(3);
                Node B= new Node(11);
                Node C= new Node(4);
                Node D = new Node(4);
-               Node E = new Node(-2);
+               Node E = new Node(-9);
                Node F = new Node(1);
 
                A.left=B;
@@ -27,7 +27,7 @@ namespace Trees
                B.right=E;
                C.right=F;
 
-               Console.WriteLine(A.RSum (A));
+               Console.WriteLine(A.Minvalue(A));
 
 
         }

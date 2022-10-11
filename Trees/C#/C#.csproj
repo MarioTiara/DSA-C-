@@ -6,4 +6,8 @@
     <RootNamespace>C_</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="xunit" Version="2.4.2" />
+  </ItemGroup>
+
 </Project>
