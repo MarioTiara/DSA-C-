@@ -17,8 +17,8 @@ namespace Trees
                Node A=new Node(3);
                Node B= new Node(11);
                Node C= new Node(4);
-               Node D = new Node(140);
-               Node E = new Node(-9);
+               Node D = new Node(-2);
+               Node E = new Node(4);
                Node F = new Node(1);
 
                A.left=B;
@@ -27,7 +27,7 @@ namespace Trees
                B.right=E;
                C.right=F;
 
-               Console.WriteLine(A.Maxvalue(A));
+               Console.WriteLine(A.maxPathSum(A));
 
 
         }

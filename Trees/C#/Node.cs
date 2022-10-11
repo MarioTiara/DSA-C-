@@ -149,6 +149,7 @@ namespace Trees
             }
         }
 
+     
         public Queue<Node> queue= new Queue<Node>();
         public void RBreadtFirstTravers(Node start){
             queue.Enqueue(start);
@@ -251,9 +252,13 @@ namespace Trees
             return Maxvalue;
         }
 
+        public int maxPathSum (Node root){
+            if (root==null) return int.MinValue;
+            if (root.left==null && root.right==null) return root.data;
+            int maxChildPathSum= Math.Max(maxPathSum(root.left), maxPathSum(root.right));
+            return root.data + maxChildPathSum;
+        }
 
-        
-        
-        
+
     }
 }
