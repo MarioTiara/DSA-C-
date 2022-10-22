@@ -40,10 +40,14 @@ struct Node * Search(struct Node * p, int key){
 void InsertFirst (struct Node *p, int value){
     struct Node * newNode=new Node();
     newNode->data=value;
+    newNode->next=first;
+    first=newNode;
     
 }
 
 int main(){
+    int [] ={3,5,7,10,25}
+    create(A,5);
 
     return 0;
 }
