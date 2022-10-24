@@ -81,12 +81,12 @@ class LinkedList {
         current=head;
         while(current->next!=NULL){
             if (current->data==value){
-                cout<<"Element "<<value<<<" is found";
+                cout<<"Element "<<value<<" is found"<<endl;
                 return;
             }
             current=current->next;
         }
-         cout<<"Element "<<value<<<" is not found";
+         cout<<"Element "<<value<<" is not found"<<endl;
     }
 
     
@@ -99,6 +99,9 @@ int main(){
     list.insertNodeAtFront(20);
     list.insertNodeAtFront(10);
     list.insertNodeAtFront(21);
+    list.insertAtPosition(3,32);
+    list.insertNodeAtEnd(21);
+    list.search(21);
     cout<<list.lenght<<endl;
     return 0;
 }
