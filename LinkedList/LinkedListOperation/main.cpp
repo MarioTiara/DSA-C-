@@ -28,6 +28,7 @@ class LinkedList {
             newNode->next=head;
             head=newNode;
         }
+       // cout<<head->data;
         lenght++;
     }
 
@@ -55,7 +56,7 @@ class LinkedList {
         newNode->data=value;
         newNode->next=NULL;
 
-        if (pos>1){
+        if (pos<1){
             cout<<"Postion cannot be less than one";
         }else if (pos==1){
             newNode->next=head;
@@ -79,14 +80,25 @@ class LinkedList {
     void search (int value){
         Node  *current = new Node;
         current=head;
-        while(current->next!=NULL){
+        
+        while(current!=NULL){
             if (current->data==value){
                 cout<<"Element "<<value<<" is found"<<endl;
                 return;
             }
             current=current->next;
+            cout<<current->data<<endl;
         }
          cout<<"Element "<<value<<" is not found"<<endl;
+    }
+
+    void display(){
+        Node * current = new Node;
+        current=head;
+        while(current!=NULL){
+            cout<<current->data<<" ";
+            current=current->next;
+        }
     }
 
     
@@ -98,10 +110,8 @@ int main(){
     list.insertNodeAtFront(30);
     list.insertNodeAtFront(20);
     list.insertNodeAtFront(10);
-    list.insertNodeAtFront(21);
-    list.insertAtPosition(3,32);
-    list.insertNodeAtEnd(21);
-    list.search(21);
-    cout<<list.lenght<<endl;
+    list.insertAtPosition(3,21);
+    list.insertNodeAtEnd(56);
+    list.display();
     return 0;
 }
