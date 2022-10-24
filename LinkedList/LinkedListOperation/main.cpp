@@ -92,6 +92,8 @@ class LinkedList {
          cout<<"Element "<<value<<" is not found"<<endl;
     }
 
+   
+
     void display(){
         Node * current = new Node;
         current=head;
@@ -101,6 +103,38 @@ class LinkedList {
         }
     }
 
+    void deleteNode (int value){
+        bool flag= false;
+        Node  * current = new Node;
+        Node * previous = new Node;
+        previous=head;
+        current=head;
+        while(current!=NULL){
+            if (current->data==value and  current==head){
+                head=current->next;
+                free(current);
+                flag=true;
+                break;
+            }else if ( current->data==value){
+                previous->next=current->next;
+                if (current==tail){
+                    tail=previous;
+                }
+                free(current);
+                flag=true;
+                break;
+            }else{
+                previous=current;
+                current=current->next;
+            }
+        }
+
+        if (flag){
+            cout<<"Element Deleted"<<endl;
+        }else{
+            cout<<"Element not found"<<endl;
+        }
+    }
     
 };
 
@@ -113,5 +147,9 @@ int main(){
     list.insertAtPosition(3,21);
     list.insertNodeAtEnd(56);
     list.display();
+    list.deleteNode(10);
+    list.display();
+
     return 0;
 }
+
