@@ -76,6 +76,19 @@ class LinkedList {
         lenght++;
     }
 
+    void search (int value){
+        Node  *current = new Node;
+        current=head;
+        while(current->next!=NULL){
+            if (current->data==value){
+                cout<<"Element "<<value<<<" is found";
+                return;
+            }
+            current=current->next;
+        }
+         cout<<"Element "<<value<<<" is not found";
+    }
+
     
 };
 
