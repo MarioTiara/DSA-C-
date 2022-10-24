@@ -47,6 +47,35 @@ class LinkedList {
         lenght++;
     }
 
+    void insertAtPosition (int pos, int value){
+        Node * prev= new Node;
+        Node *current = new Node;
+        current =head;
+        Node * newNode= new Node;
+        newNode->data=value;
+        newNode->next=NULL;
+
+        if (pos>1){
+            cout<<"Postion cannot be less than one";
+        }else if (pos==1){
+            newNode->next=head;
+            head=newNode;
+        }else{
+            for (int i=1; i<pos; i++){
+                prev=current;
+                current=current->next;
+                if (current==NULL){
+                    cout<<"Invalid Position";
+                    return;
+                }
+            }
+            prev->next=newNode;
+            newNode->next=current;
+        }
+
+        lenght++;
+    }
+
     
 };
 
