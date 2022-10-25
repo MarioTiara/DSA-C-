@@ -138,6 +138,13 @@ class LinkedList {
     
 };
 
+class DLLNode{
+    public:
+        int data;
+        DLLNode * prev;
+        DLLNode *next;
+}
+
 int main(){
     LinkedList list;
     list.insertNodeAtFront(40);
