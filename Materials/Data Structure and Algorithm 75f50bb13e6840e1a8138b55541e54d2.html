@@ -1,0 +1,1009 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Data Structure and Algorithm</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="75f50bb1-3e68-40e1-a813-8b55541e54d2" class="page sans"><header><h1 class="page-title">Data Structure and Algorithm</h1><table class="properties"><tbody><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><svg viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesMultipleSelect"><path d="M1.91602 4.83789C2.44238 4.83789 2.87305 4.40723 2.87305 3.87402C2.87305 3.34766 2.44238 2.91699 1.91602 2.91699C1.38281 2.91699 0.952148 3.34766 0.952148 3.87402C0.952148 4.40723 1.38281 4.83789 1.91602 4.83789ZM5.1084 4.52344H14.3984C14.7607 4.52344 15.0479 4.23633 15.0479 3.87402C15.0479 3.51172 14.7607 3.22461 14.3984 3.22461H5.1084C4.74609 3.22461 4.45898 3.51172 4.45898 3.87402C4.45898 4.23633 4.74609 4.52344 5.1084 4.52344ZM1.91602 9.03516C2.44238 9.03516 2.87305 8.60449 2.87305 8.07129C2.87305 7.54492 2.44238 7.11426 1.91602 7.11426C1.38281 7.11426 0.952148 7.54492 0.952148 8.07129C0.952148 8.60449 1.38281 9.03516 1.91602 9.03516ZM5.1084 8.7207H14.3984C14.7607 8.7207 15.0479 8.43359 15.0479 8.07129C15.0479 7.70898 14.7607 7.42188 14.3984 7.42188H5.1084C4.74609 7.42188 4.45898 7.70898 4.45898 8.07129C4.45898 8.43359 4.74609 8.7207 5.1084 8.7207ZM1.91602 13.2324C2.44238 13.2324 2.87305 12.8018 2.87305 12.2686C2.87305 11.7422 2.44238 11.3115 1.91602 11.3115C1.38281 11.3115 0.952148 11.7422 0.952148 12.2686C0.952148 12.8018 1.38281 13.2324 1.91602 13.2324ZM5.1084 12.918H14.3984C14.7607 12.918 15.0479 12.6309 15.0479 12.2686C15.0479 11.9062 14.7607 11.6191 14.3984 11.6191H5.1084C4.74609 11.6191 4.45898 11.9062 4.45898 12.2686C4.45898 12.6309 4.74609 12.918 5.1084 12.918Z"></path></svg></span>Priority</th><td><span class="selected-value select-value-color-red">High</span></td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><svg viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesSelect"><path d="M8 15.126C11.8623 15.126 15.0615 11.9336 15.0615 8.06445C15.0615 4.20215 11.8623 1.00293 7.99316 1.00293C4.13086 1.00293 0.938477 4.20215 0.938477 8.06445C0.938477 11.9336 4.1377 15.126 8 15.126ZM8 13.7383C4.85547 13.7383 2.33301 11.209 2.33301 8.06445C2.33301 4.91992 4.84863 2.39746 7.99316 2.39746C11.1377 2.39746 13.6738 4.91992 13.6738 8.06445C13.6738 11.209 11.1445 13.7383 8 13.7383ZM7.62402 10.6348C7.79492 10.915 8.20508 10.9287 8.37598 10.6348L10.666 6.73145C10.8574 6.41016 10.7002 6.04102 10.3652 6.04102H5.62793C5.29297 6.04102 5.14941 6.43066 5.32031 6.73145L7.62402 10.6348Z"></path></svg></span>Status</th><td><span class="selected-value select-value-color-yellow">In Progress</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><svg viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesMultipleSelect"><path d="M1.91602 4.83789C2.44238 4.83789 2.87305 4.40723 2.87305 3.87402C2.87305 3.34766 2.44238 2.91699 1.91602 2.91699C1.38281 2.91699 0.952148 3.34766 0.952148 3.87402C0.952148 4.40723 1.38281 4.83789 1.91602 4.83789ZM5.1084 4.52344H14.3984C14.7607 4.52344 15.0479 4.23633 15.0479 3.87402C15.0479 3.51172 14.7607 3.22461 14.3984 3.22461H5.1084C4.74609 3.22461 4.45898 3.51172 4.45898 3.87402C4.45898 4.23633 4.74609 4.52344 5.1084 4.52344ZM1.91602 9.03516C2.44238 9.03516 2.87305 8.60449 2.87305 8.07129C2.87305 7.54492 2.44238 7.11426 1.91602 7.11426C1.38281 7.11426 0.952148 7.54492 0.952148 8.07129C0.952148 8.60449 1.38281 9.03516 1.91602 9.03516ZM5.1084 8.7207H14.3984C14.7607 8.7207 15.0479 8.43359 15.0479 8.07129C15.0479 7.70898 14.7607 7.42188 14.3984 7.42188H5.1084C4.74609 7.42188 4.45898 7.70898 4.45898 8.07129C4.45898 8.43359 4.74609 8.7207 5.1084 8.7207ZM1.91602 13.2324C2.44238 13.2324 2.87305 12.8018 2.87305 12.2686C2.87305 11.7422 2.44238 11.3115 1.91602 11.3115C1.38281 11.3115 0.952148 11.7422 0.952148 12.2686C0.952148 12.8018 1.38281 13.2324 1.91602 13.2324ZM5.1084 12.918H14.3984C14.7607 12.918 15.0479 12.6309 15.0479 12.2686C15.0479 11.9062 14.7607 11.6191 14.3984 11.6191H5.1084C4.74609 11.6191 4.45898 11.9062 4.45898 12.2686C4.45898 12.6309 4.74609 12.918 5.1084 12.918Z"></path></svg></span>Type</th><td><span class="selected-value select-value-color-default">Backend</span><span class="selected-value select-value-color-purple">Software Engineering</span></td></tr></tbody></table></header><div class="page-body"><h2 id="7b56f42f-c9fa-42ca-a230-72b04c0ac6c6" class="">Algorithm 1 (Princeton University)</h2><figure id="4af5b341-67d1-4bdb-b44b-9414e4ba77cc"><a href="https://www.coursera.org/learn/algorithms-part1/home/welcome" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Coursera | Online Courses &amp; Credentials From Top Educators. Join for Free | Coursera</div><div class="bookmark-description">Learn online and earn valuable credentials from top universities like Yale, Michigan, Stanford, and leading companies like Google and IBM. Join Coursera for free and transform your career with degrees, certificates, Specializations, &amp; MOOCs in data science, computer science, business, and dozens of other topics.</div></div><div class="bookmark-href"><img src="https://d3njjcbhbojbot.cloudfront.net/web/images/favicons/favicon-v2-32x32.png" class="icon bookmark-icon"/>https://www.coursera.org/learn/algorithms-part1/home/welcome</div></div><img src="https://s3.amazonaws.com/coursera/media/Grid_Coursera_Partners_updated.png" class="bookmark-image"/></a></figure><h3 id="285ca48e-e1ef-4380-a492-c62f16c13ddd" class="">                                                   Curriculum</h3><figure id="09410550-e389-4c94-9d37-5711951b294a"><a href="https://drive.google.com/file/d/17MObZ0XQy9pUI-IBslyp9bW5R5v0pqKI/view?usp=sharing" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Algorithhms 4th Edition by Robert Sedgewick, Kevin Wayne.pdf</div></div><div class="bookmark-href"><img src="https://ssl.gstatic.com/images/branding/product/1x/drive_2020q4_32dp.png" class="icon bookmark-icon"/>https://drive.google.com/file/d/17MObZ0XQy9pUI-IBslyp9bW5R5v0pqKI/view?usp=sharing</div></div><img src="https://lh5.googleusercontent.com/25B19e4iXZ1yB_ZiemlSlT8dVvIEqRNNYD6X8XD85DMA5zn6FvsKZsnwZ5_t3N7J5XM=w1200-h630-p" class="bookmark-image"/></a></figure><figure id="6bd9f5fc-e0ff-413e-b167-fd253641f596" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1).png"><img style="width:512px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1).png"/></a></figure><p id="e8e225d6-6f32-49f5-b19c-70429aa7883f" class="">
+</p><h2 id="9dbd3106-1a16-4a62-b4e2-70d7aa050a62" class=""><details open=""><summary><strong><strong>Data Structures and Algorithms Core Concepts</strong></strong></summary></details></h2><div class="indented"><figure id="d8af8808-7fda-4ef1-acab-aa0b851f6bb1" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled.png"><img style="width:921px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled.png"/></a></figure><p id="0b52012b-5f2e-4be1-9bb5-1dc4f25c0d7a" class=""> </p><h3 id="a308f391-0391-4386-ab20-24dbd19113a1" class=""><strong>Algorithm </strong></h3><ul id="c8b94268-a232-43e0-8dc9-40f3fd590137" class="bulleted-list"><li style="list-style-type:disc">Problem-solving procedure</li></ul><ul id="76dca25d-8898-48d6-94aa-271900ae4380" class="bulleted-list"><li style="list-style-type:disc">Step-by-step procedure for performing a task within a specified time.</li></ul><ul id="d4296c64-3fdc-47fc-adcb-501926516cb9" class="bulleted-list"><li style="list-style-type:disc">Operates on a collection of data with a definite beginning, a definite end, and finite steps.</li></ul><h3 id="a3dc6749-1eee-40b0-9ac1-c0c129d8def8" class="">Data Structure</h3><ul id="42c67f14-bf15-4b27-83fe-3b51e54bd970" class="bulleted-list"><li style="list-style-type:disc">The way we store and organize the data</li></ul><ul id="60e0113d-8346-4bef-b30e-0f5e143132fb" class="bulleted-list"><li style="list-style-type:disc">there are different ways to store data for example Array, Stack, LinkedList, Queue,  Hash, Graph, Tree, etc.</li></ul><ul id="b2e07e74-098c-4e72-af94-b51194cd1ec3" class="bulleted-list"><li style="list-style-type:disc">We need to choose the correct data structure based on our data nature, to be resulting an efficient program.</li></ul><h3 id="fdfe2936-3df4-4e07-9b4b-1f3f25e7644a" class="">Abstract Data Types (ADT)</h3><figure id="696bccde-8a92-438f-9f58-11dd60d841e7" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%201.png"><img style="width:847px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%201.png"/></a></figure><p id="795accaa-25ad-4520-8dab-e3e86fec12b8" class="">Represent the collection of data and set of operations performed on the data. </p><h3 id="fdc9b8bf-2d9c-46b9-9891-2a66de60adbb" class=""><details open=""><summary>Data Structure Categories</summary></details></h3><div class="indented"><figure id="c20d4d22-018a-42f8-8252-17a84c9c127e" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%202.png"><img style="width:927px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%202.png"/></a></figure><p id="fda40b85-27ff-4d67-a7bd-1409fb8e7a0e" class=""><div class="indented"><h3 id="25728e64-3864-495c-acbe-d372905780d0" class="">Linear Data Structure </h3><ul id="1bc63906-ea35-469b-9bcc-200ac94ad04d" class="bulleted-list"><li style="list-style-type:disc">Can be constructed as a continuous arrangement of data elements in the memory. </li></ul><ul id="af842b2b-ae2f-4652-a4ce-b4457cfd3911" class="bulleted-list"><li style="list-style-type:disc">The elements are traversed sequentially to access the data.<figure id="c5691242-da07-4e83-b655-6e69f3584842" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%203.png"><img style="width:705px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%203.png"/></a></figure><figure id="7aafcab1-9559-4b73-89e1-66edbd3620db" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%204.png"><img style="width:941px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%204.png"/></a></figure></li></ul><h3 id="1cfb13a3-aac3-4f06-b3fc-93ed513e11ad" class="">Non-Linear Data Structure</h3><ul id="5f8173bf-e2f1-4122-aad3-551583f98efa" class="bulleted-list"><li style="list-style-type:disc">Data is not stored in a linear or sequential order.</li></ul><ul id="be9c240a-2c74-4632-8210-ab0354fd4ba3" class="bulleted-list"><li style="list-style-type:disc">A data structure can be constructed as a collection of a randomly distributed set of data items joined together by using a reference pointer.<figure id="bf90a621-6682-44e9-8ac5-dfbaf6a55fbc" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%205.png"><img style="width:531px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%205.png"/></a></figure></li></ul><ul id="375d53cc-f35d-4a27-ba95-ae29c15dcd49" class="bulleted-list"><li style="list-style-type:disc">Examples of Non-Linear Data structures are Tree and Graph<figure id="52e1f63d-e712-4c8d-9eb2-3c22767d1cf9" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%206.png"><img style="width:846px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%206.png"/></a></figure><p id="bc61e27b-6797-4fc5-8bd4-4a8bb9c7f086" class="">
+</p></li></ul><p id="86182d70-1454-4e41-8685-958c256b726f" class="">
+</p></div></p><p id="61bee901-8c35-4eee-9443-0497a61ab72e" class="">
+</p></div><h3 id="0254610f-1bb6-4f41-983b-9bec932072bd" class="">Summaries</h3><ul id="5f51bdb0-e989-427c-b2b0-bf572866cd26" class="bulleted-list"><li style="list-style-type:disc">Algorithms and data structures are two main components of a problem solution</li></ul><ul id="dec624dd-6433-4dcc-a83a-e48c0fd5d66d" class="bulleted-list"><li style="list-style-type:disc">An algorithm is a step-by-step procedure for performing a task within the specified time</li></ul><ul id="fae7e8da-e24e-4920-8327-f283151f0313" class="bulleted-list"><li style="list-style-type:disc">A data structure is a way to store and organize data</li></ul><ul id="ed9a6177-a25e-4671-b854-b5d35c00962e" class="bulleted-list"><li style="list-style-type:disc">A data structure’s major operations include insertion, modification, deletion, search, sort, merge, and traversal of data.</li></ul><ul id="dc1a200d-3112-4ed9-8cd3-c318d88b1e8c" class="bulleted-list"><li style="list-style-type:disc">Abstract Data Structure (ADT) represents the type of data and the operations without revealing the way of implementation</li></ul><ul id="3e6a543d-f901-47e9-a326-208be21a653a" class="bulleted-list"><li style="list-style-type:disc">Data structures are of linear types and non-linear types</li></ul><ul id="2a162974-7d3c-466e-af95-deef89279f6f" class="bulleted-list"><li style="list-style-type:disc">In a linear data structure, data is arranged in a linear or sequential order whereas, in a non-linear data structure, data is stored in no-sequential order</li></ul></div><h2 id="ffb67f4e-1eeb-46c5-adfe-b42eed794e30" class=""><details open=""><summary>Linear Data Structures - Arrays and Linked Lists </summary></details></h2><div class="indented"><p id="a119c044-b884-48dd-8936-df743286b98c" class="">There are two types of Linear Data Structures which are </p><ul id="15d3ec4a-627a-4a89-9562-613218dee6b4" class="bulleted-list"><li style="list-style-type:disc">Static Data Structure <ul id="b199fd5c-cc48-47cc-a902-199b44edcdf6" class="bulleted-list"><li style="list-style-type:circle">Array</li></ul></li></ul><ul id="bfa55bf8-0d6f-4f6f-8ff6-8a7d09aa30a9" class="bulleted-list"><li style="list-style-type:disc">Dynamic Data Structure<ul id="6d8c1b9e-aefb-40c8-bf80-304396a95ea5" class="bulleted-list"><li style="list-style-type:circle">LinkedList</li></ul><ul id="a4849aaf-e40e-4876-9542-54e362c00c7b" class="bulleted-list"><li style="list-style-type:circle">Queue</li></ul><ul id="51b176a1-85f3-42d6-a50a-bfc2c2d12916" class="bulleted-list"><li style="list-style-type:circle">Stack</li></ul></li></ul><h3 id="118d64ee-c51f-4547-9dff-f61edc47dc05" class="">Array</h3><ul id="06ce6dde-1e83-460e-89c5-5a308705ead7" class="bulleted-list"><li style="list-style-type:disc">Data structure implementation <mark class="highlight-red"><strong>helps to store homogeneous</strong></mark> <mark class="highlight-red"><strong>data</strong></mark> elements in contiguous memory locations. </li></ul><ul id="5df23130-0236-480b-a2da-09bace067fc1" class="bulleted-list"><li style="list-style-type:disc">It can be one dimensional or multidimensional implementation</li></ul><ul id="4845e9f1-f544-4069-94fe-24894fcec164" class="bulleted-list"><li style="list-style-type:disc">The biggest drawback of array implementation is the size of the array. Since the array is a static data structure, it will be a problem when we need to grow the size or if we are going to delete some elements from a particular array.     </li></ul><h3 id="1961aebb-3acf-4ddc-8bb7-d9461768998d" class="">Linked List</h3><ul id="329350ce-5058-4828-b338-ba9af9544dc0" class="bulleted-list"><li style="list-style-type:disc">The primary advantage of a linked list is we are able to insert elements in any place within the chain</li></ul><ul id="d246e739-265a-41f1-a518-c37dafa6143b" class="bulleted-list"><li style="list-style-type:disc">The size is able to grow as the data come in</li></ul><ul id="2c9f2282-7e81-4c0b-82e2-fc089ffb5069" class="bulleted-list"><li style="list-style-type:disc">It will be able to shrink itself as the data is getting deleted.</li></ul><h3 id="b41d4990-51d3-46dc-ba94-811775263800" class=""><details open=""><summary>Core Concepts </summary></details></h3><div class="indented"><h3 id="50aecb88-877e-4807-9229-ba56c50add60" class="">Linear List</h3><p id="cfb9aed2-f3d2-4eec-87e5-3eceaea15297" class="">Generally, a list means a collection of sequentially connected items. For example, a to-do list, an item list, <a href="http://etc.In">etc.</a> In Computer science, a list is an ordered collection of values, items, entries, elements, etc.  The implementation of a linear list can be Array or Linked List.</p><figure id="7c81ab54-146b-453e-8bcb-6b7348f94692" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%207.png"><img style="width:471px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%207.png"/></a></figure><h3 id="802db4b5-951e-4a52-8e13-6d25ad661fb6" class=""><details open=""><summary><strong>Array</strong></summary></details></h3><div class="indented"><ul id="6aa2e062-cd0b-4dcd-8a31-eaf4144ecb63" class="bulleted-list"><li style="list-style-type:disc">An array is a type of linear data structure used to store homogeneous data in contiguous memory locations. </li></ul><ul id="6d7fcdc1-af02-47cd-bd3a-2d21d0c23b0f" class="bulleted-list"><li style="list-style-type:disc">It is something like a box with equally spaced slots into which data can be stored.</li></ul><ul id="028d0d05-f407-40de-af4a-f4cfb864a942" class="bulleted-list"><li style="list-style-type:disc">Array have fixed sizes. </li></ul><ul id="34359dfa-e50f-4fae-8331-b1eb7f21d0ae" class="bulleted-list"><li style="list-style-type:disc">Arrays can be classified as single-dimensional arrays and multi-dimensional arrays. <ol type="1" id="d855afdc-4f6d-454d-87a3-fdeedc8d3206" class="numbered-list" start="1"><li>Single-Dimensional arrays</li></ol><figure id="a7409c03-ceb1-422d-97c9-cc756852e105" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%208.png"><img style="width:840px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%208.png"/></a></figure><ol type="1" id="75501a0d-7fd9-45e5-abce-56cc919a57af" class="numbered-list" start="2"><li>Multi-Dimensional Array<figure id="ea28de1a-4c1e-478f-b955-6fc7033ff566" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%209.png"><img style="width:647px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%209.png"/></a></figure></li></ol></li></ul><ul id="b020b260-eb80-40a5-9d8c-7debbf0c1de9" class="bulleted-list"><li style="list-style-type:disc">When do we need arrays?<ol type="1" id="05a62291-05cc-48d3-a1b7-f54c5cbf8855" class="numbered-list" start="1"><li>When we need to index or access randomly more frequently. </li></ol><ol type="1" id="b208ff5e-e636-4b81-995c-23a44d6e1c7e" class="numbered-list" start="2"><li>When memory is a concern because arrays use up less memory.</li></ol></li></ul><ul id="068c85a8-54c7-45b2-bad5-7bc817a59533" class="bulleted-list"><li style="list-style-type:disc">Problems in Arrays<ol type="1" id="c966d9c3-b335-4288-a929-30bdbc5c5676" class="numbered-list" start="1"><li>Arrays have fixed size<figure id="990596f4-8cec-4552-9fe6-92ff7bedf478" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2010.png"><img style="width:617px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2010.png"/></a></figure></li></ol><ol type="1" id="d35168b4-3247-491d-b15c-c2bd060689fe" class="numbered-list" start="2"><li>Complicated Insertion and Deletion<figure id="7a0f20b3-679d-42a7-88f6-1bc5b806fcd2" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2011.png"><img style="width:868px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2011.png"/></a></figure></li></ol></li></ul><ul id="0899c0e6-8e2c-49ae-b0fb-a31a0d02d709" class="bulleted-list"><li style="list-style-type:disc">Application of Array<figure id="ccb93285-ef03-49a6-b0cd-90d8c232196d" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2012.png"><img style="width:867px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2012.png"/></a></figure></li></ul><ul id="90490271-b689-4f91-8efa-fcae8019dab8" class="bulleted-list"><li style="list-style-type:disc">Implementation of Array using C++<figure id="ba570133-988f-4101-ba77-3e8bd6b41778" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2013.png"><img style="width:871px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2013.png"/></a></figure></li></ul><p id="67a1d7cc-0ea2-4022-b65a-47e26d95fe5c" class="">
+</p><p id="eec95d66-2186-472d-88c4-0c8d037b4421" class="">
+</p><p id="70d1ee7c-c5ba-4cc2-9c4a-a92bfda437e2" class="">
+</p><p id="d69a7357-b9bb-4901-addd-c43b268503ee" class="">
+</p><p id="8aa30e2f-c750-441c-8345-ccc252483d96" class="">
+</p><p id="38aefa32-0c37-4f9f-ab2e-53ccb3d84b5b" class="">
+</p><p id="cf257c56-2d71-48b5-9c78-17adfde85c73" class="">
+</p><p id="cf4b3fca-b5e7-4388-b3e1-489b07972b7a" class="">
+</p><p id="6cbbe455-b476-4056-a458-2f1e22253126" class="">
+</p><p id="0418c505-0c98-472d-bc32-5df9cff8241d" class="">
+</p></div><h3 id="f0f3ef98-0dd1-4415-b6e4-8d57999c2664" class=""><details open=""><summary>Linked List</summary></details></h3><div class="indented"><ul id="a0d2171c-91f5-4910-bc2b-e007a70439df" class="bulleted-list"><li style="list-style-type:disc">A linked list is a collection of elements called nodes that are arranged in a linear sequence.</li></ul><ul id="7c1c28df-5d9e-4c0b-8e09-361dc6a3c2a0" class="bulleted-list"><li style="list-style-type:disc">A linked list allocates space for each element separately in its own block of memory called a node. <figure id="baf8f365-2cca-43c5-8114-3d3485d118e8" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2014.png"><img style="width:846px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2014.png"/></a></figure></li></ul><h3 id="794c99af-dea6-41fc-b33a-178776f6c377" class="">Advantages of Linked List</h3><ol type="1" id="32a28b19-377f-42cc-aac1-a205d0558961" class="numbered-list" start="1"><li>It can grow or shrink dynamically to any size<figure id="7dab16fb-9272-4937-866a-dc33ba70b02b" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2015.png"><img style="width:747px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2015.png"/></a></figure></li></ol><ol type="1" id="a8bc2cd4-7fcf-453d-8788-19ab780e4e4e" class="numbered-list" start="2"><li>More EFFICIENT Insert and Delete operations<p id="38a6c895-e131-4545-b0b7-f61a78f007f4" class="">It will be easy to insert or delete an element at the beginning, in the middle, or in the end of the list. Since this data structure is using memory address for connecting the elements. </p></li></ol><h3 id="6891f6ca-08a4-409e-9455-0e54e3f2026a" class="">Disadvantages</h3><ol type="1" id="1ec55ecd-fc66-4166-8d36-5693cb4a8120" class="numbered-list" start="1"><li>Traversal is difficult<p id="97d7ee3b-8e2d-4933-8362-825d7838e3b0" class="">There is no index in a linked list, which means we can not access the element randomly. If we want to traverse a node and be in the n position, then we have to traverse all nodes that come before n. </p><figure id="152d9b87-4319-4aea-abca-885ef6954661" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2016.png"><img style="width:573px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2016.png"/></a></figure></li></ol><h3 id="291a14d0-e808-47ee-9e4b-f229d8319890" class="">Linked List Implementation</h3><p id="325c615c-c305-429c-adfd-e55b0481c3a7" class="">A linked list node <strong><mark class="highlight-red">may contain one or more data and a reference</mark></strong> to the next node. In this given example, a linked list node is implemented using a class called Node, which contains data as a member as a variable of integer type and next as a reference to the next node. </p><pre id="7c798622-2ea7-4fd8-9154-25b947638cb0" class="code"><code>Syntax:
+class class-name{
+	variable declaration;
+	reference to next object;
+}</code></pre><p id="dc792723-cb42-4406-90ef-6ccac98d27db" class="">
+</p><figure id="6d92c4c9-d077-420f-ac93-38e3af17f0e7" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2017.png"><img style="width:605px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2017.png"/></a></figure><p id="fb0101da-de9d-4cf9-8fb9-cdae581f7094" class="">
+</p><ul id="17e0a2b1-dc32-4e0d-9c0f-5b90ffc0d9ec" class="toggle"><li><details open=""><summary><strong>Operations on Linked List</strong></summary><ol type="1" id="b2d7c6ab-d87c-4f48-9d7e-79fba6967485" class="numbered-list" start="1"><li>Insert<figure id="73a6b3bb-4d47-4faf-b8be-637fedcc5c51" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2018.png"><img style="width:593px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2018.png"/></a></figure><ul id="b8cce902-c743-46f8-8e10-3909e05e8ced" class="toggle"><li><details open=""><summary><strong>A). Insert At Front</strong></summary><ol type="1" id="f2ae83d4-7f88-42ed-927d-599adf631d90" class="numbered-list" start="1"><li>Create a new Node using the node class and store the value as its parameter to the <em><strong>data </strong></em>attribute and store NULL to the <strong>next </strong>attribute.</li></ol><ol type="1" id="dc0a9aec-7956-4459-bf0f-5016d0cd4e3d" class="numbered-list" start="2"><li>Check whether the head of the list is null or not<ul id="e790d83f-dee6-4aa4-976b-cb7df5414d1a" class="bulleted-list"><li style="list-style-type:disc">if it is null, set the new created as the head and the tail because this is the only element in the list<figure id="6256b768-8ebe-40b5-ab1e-77185d3cf380" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2019.png"><img style="width:414px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2019.png"/></a></figure></li></ul><ul id="1fa6b2fb-492d-4220-8d54-ec4e5bd6f805" class="bulleted-list"><li style="list-style-type:disc">if the head is not null, then store the head node in the next of the new node. <figure id="2d6e84e0-7455-4881-948b-3623f8412120" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2020.png"><img style="width:424px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2020.png"/></a></figure></li></ul><ul id="2f7df055-2f6d-4da5-b87d-35b0e155cbf9" class="bulleted-list"><li style="list-style-type:disc">then set the new node as the head of the list<figure id="945f11d9-bb10-48c0-89da-f272c846ca18" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2021.png"><img style="width:448px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2021.png"/></a></figure></li></ul></li></ol><p id="6c64c250-8e6f-427a-813a-75956251f026" class="">
+</p></details></li></ul><ul id="0182b8af-bde2-44ec-b827-89c8b610a48c" class="toggle"><li><details open=""><summary><strong>B). Insert a New Node at The End</strong></summary><ol type="1" id="ea876324-3edd-468d-85cd-4adc75abf85b" class="numbered-list" start="1"><li>Create a new Node using the node class and store the value as its parameter to the <em><strong>data </strong></em>attribute and store NULL to the <strong>next </strong>attribute.</li></ol><ol type="1" id="d0c06aec-4137-4607-9875-e9a69104a93a" class="numbered-list" start="2"><li>Check whether the head of the list is null or not<ul id="8db8f206-6884-46d0-96e9-76dc53cb8440" class="bulleted-list"><li style="list-style-type:disc">if it is null, set the new created as the head and the tail because this is the only element in the list (will be same with insert at the front)</li></ul><ul id="6f8b214a-32b6-4c27-bd83-a611e015a995" class="bulleted-list"><li style="list-style-type:disc">if it is not: <ul id="4d6ebb1b-f22b-42ed-bcde-b0feef48f29a" class="bulleted-list"><li style="list-style-type:circle">if the list is maintaining the ‘tail’ reference:  <ol type="1" id="cff9556d-748e-44eb-a664-d3e5991648f3" class="numbered-list" start="1"><li><strong>Set the tail→next:newNode  </strong><figure id="7af8691e-cc77-45b8-88a7-b07cc1583b53" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2022.png"><img style="width:525px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2022.png"/></a></figure></li></ol><ol type="1" id="a6ac57bb-31c1-4692-99ca-8784f51dc653" class="numbered-list" start="2"><li><strong>and tail = tail→next (tail=newNode)</strong><figure id="f8372c2b-8ac3-40a5-a550-699e0cec39f5" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2023.png"><img style="width:526px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2023.png"/></a></figure></li></ol></li></ul><ul id="4e34b6aa-df50-49e0-a95d-631e735d06ef" class="bulleted-list"><li style="list-style-type:circle">if the list is not maintaining the ‘tail’ reference:  <ol type="1" id="0e5615cc-68ff-4cb3-aed0-fe1770515457" class="numbered-list" start="1"><li>iterate through the list till the last node<figure id="939aff8c-fb71-4cd1-9698-127d95e8e3d7" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2024.png"><img style="width:425px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2024.png"/></a></figure></li></ol><ol type="1" id="a603dac0-082f-4177-bbf6-78cdf70e02c1" class="numbered-list" start="2"><li>Point the <strong><strong><strong><strong><strong>next </strong></strong></strong></strong></strong>of the <strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>last node to the new node</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><figure id="241dc85c-7b8a-429f-a1c1-32b60ee3795c" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2025.png"><img style="width:529px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2025.png"/></a></figure></li></ol></li></ul></li></ul></li></ol></details></li></ul><ul id="aed8e355-be38-4067-864f-17f1bf81b197" class="toggle"><li><details open=""><summary><strong>C). Insert a Node at a Specific Position</strong></summary><figure id="5dcaed6c-daa1-4175-b1bc-cc2d3d0e7401" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2026.png"><img style="width:841px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2026.png"/></a></figure><ol type="1" id="e2b86d46-89ff-44fe-a837-073a5a55e9c3" class="numbered-list" start="1"><li>Declare two reference variables of node type <strong>(prev and current)</strong> </li></ol><ol type="1" id="2b1b6afc-02c7-4878-b875-b593d0ca2a5e" class="numbered-list" start="2"><li>Set the head as the current reference variable</li></ol><ol type="1" id="b9c3558f-60bf-43f2-b7c9-fee1b0127e1e" class="numbered-list" start="3"><li>create the new node and set the value to the <strong><strong><strong>data </strong></strong></strong>attribute<figure id="7d16d6c9-b272-4cc7-aa66-39a5cedb3104" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2027.png"><img style="width:514px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2027.png"/></a></figure></li></ol><ol type="1" id="aa6f0a7a-4b43-4e01-b904-d349f99090af" class="numbered-list" start="4"><li>Check the given position for its validity, and make sure it is not less than 1: if it&#x27;s in less than one, it is invalid and the insert can not proceed. </li></ol><ol type="1" id="3fd8c006-fbf5-433a-b0cb-52adc3fe7ebf" class="numbered-list" start="5"><li>Check whether the given position is one or not, if it is one, store the head in the new node’s next variable and set the new node as head. <figure id="8cb9c7ee-da8b-49c9-991b-96e1a0ae8e4b" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2028.png"><img style="width:499px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2028.png"/></a></figure></li></ol><ol type="1" id="e4622ac1-8b9f-4649-908b-6ef984e2c441" class="numbered-list" start="6"><li>Otherwise, it has to traverse to the position in the list.  The variable prev tracks the previous note and the current tracks the current node<ul id="754f90bd-7961-4654-9f66-1ba27017a7ff" class="bulleted-list"><li style="list-style-type:disc">When it reaches the specified position, the loop exists and stores the new node into the previous node’s next and the current node into the new node’s next respectively.<figure id="e1f05883-d2d0-4953-bb47-f9038b440f00" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2029.png"><img style="width:500px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2029.png"/></a></figure></li></ul><ul id="58eddb1f-afe2-4b68-8e59-fe124b9a246c" class="bulleted-list"><li style="list-style-type:disc">If the entered position is not found on the entire traversal of the list,  display the appropriate message for the invalid position. </li></ul><p id="80e8bb9f-0235-4877-b760-124f6e01d8bd" class="">
+</p></li></ol><p id="d7550533-4ca1-4e2e-a8e0-312a9d497e18" class="">
+</p></details></li></ul></li></ol><ol type="1" id="37d511c0-10f3-4d35-b2d0-371c5beb7094" class="numbered-list" start="2"><li>Search and Display Element<ul id="d8482925-1bae-40a7-b500-1150b1a0a3ab" class="bulleted-list"><li style="list-style-type:disc">To get a certain element in the list, we need to iterate each and every node and check the data part of each node for the search key value. </li></ul><ul id="c1e62632-36a0-42e0-9a0a-1b5e4254e806" class="bulleted-list"><li style="list-style-type:disc">Steps:<ol type="1" id="c63e0523-73dd-4f9d-aebb-9b03d74ec4e5" class="numbered-list" start="1"><li>Create a reference variable for starting the traversal from the first node. </li></ol><ol type="1" id="03c81b1e-0b0a-425e-9204-7ce471413e0c" class="numbered-list" start="2"><li>Create a loop for traversal until the current becomes null.</li></ol><ol type="1" id="1de93bd7-62fd-4326-8992-a1eb9fd6fbab" class="numbered-list" start="3"><li>If any node is equal to the search key value then stop the search, display the successful result and return from the function</li></ol><ol type="1" id="dbbd0449-29ac-4f57-87de-ecc6f38cc692" class="numbered-list" start="4"><li>if not, move to the next node and continue the same process. </li></ol></li></ul></li></ol><ol type="1" id="4e9f7951-d353-4cbe-9d03-17d38ebc13cd" class="numbered-list" start="3"><li>Delete<ul id="e0fe1282-69eb-4301-8bd1-f6f4b18aae4b" class="bulleted-list"><li style="list-style-type:disc">make a flag variable (boolean)</li></ul><ul id="e3f9f57c-e9db-483c-95a6-4d2cb38b936a" class="bulleted-list"><li style="list-style-type:disc">make <strong>current </strong>and <strong><strong><strong><strong><strong><strong><strong><strong><strong>previous </strong></strong></strong></strong></strong></strong></strong></strong></strong>variables for the reference variable</li></ul><ul id="3bd146dc-7b13-43cc-add4-c54113a7a734" class="bulleted-list"><li style="list-style-type:disc">point the <strong><strong><strong><strong><strong><strong><strong>current </strong></strong></strong></strong></strong></strong></strong>and <strong><strong><strong><strong><strong><strong><strong><strong><strong>previous </strong></strong></strong></strong></strong></strong></strong></strong></strong>to <strong>head</strong></li></ul><ul id="9b41b0d9-2dae-47aa-8a06-3108e12afdb8" class="bulleted-list"><li style="list-style-type:disc">iterate through the list element till the <strong><strong><strong><strong><strong><strong><strong><strong>current </strong></strong></strong></strong></strong></strong></strong></strong>is not null.</li></ul><ul id="7a6bc3c0-8e12-454b-bc4b-cf9902e0265d" class="bulleted-list"><li style="list-style-type:disc">check if the current data is equal to the value and if it is also the head node<ul id="13d5316b-d8ec-46ed-aad4-35f453b1ffd4" class="bulleted-list"><li style="list-style-type:circle">set the head to the current→ next</li></ul><ul id="254ce219-e59b-4ef9-be31-006f2feb5431" class="bulleted-list"><li style="list-style-type:circle">set <strong><strong><strong><strong><strong>flag </strong></strong></strong></strong></strong>to true</li></ul><ul id="a936d745-615c-4d9e-b1a2-b1ff68597280" class="bulleted-list"><li style="list-style-type:circle">break the looping</li></ul></li></ul><ul id="c44aa3df-2e27-4487-818b-1a6a2c52b030" class="bulleted-list"><li style="list-style-type:disc">check if the current data is equal to the value and if it is not the head<ul id="8bcfdfcc-638a-42e2-a389-fd9a280613bf" class="bulleted-list"><li style="list-style-type:circle">point the previous→next to the current→next</li></ul><ul id="4b1e6edf-eb85-462f-b034-019252d8d82e" class="bulleted-list"><li style="list-style-type:circle">if (current is tail)<ul id="fd0ffecb-4117-4ac7-883e-ca541c9c4ac6" class="bulleted-list"><li style="list-style-type:square">set tail as the previous</li></ul></li></ul><ul id="4195c352-67c7-4384-a046-23ea0374173a" class="bulleted-list"><li style="list-style-type:circle">set <strong><strong><strong><strong><strong>flag </strong></strong></strong></strong></strong>to true</li></ul><ul id="32920f05-e270-4714-95c6-eb91160e9a9d" class="bulleted-list"><li style="list-style-type:circle">break the looping</li></ul></li></ul><figure id="0a8ff37d-b76a-407e-9aef-003d2d0d243b" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2030.png"><img style="width:424px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2030.png"/></a></figure></li></ol><ol type="1" id="0452869e-0bcd-4d02-8728-ed92719a64ff" class="numbered-list" start="4"><li>Modify</li></ol></details></li></ul><ul id="2c767e7a-bbef-4d2d-8226-9d62f66e124d" class="toggle"><li><details open=""><summary><strong>Linked List Variations</strong></summary><ul id="a13cb66c-2f32-41eb-9e67-a39fd81ecf36" class="toggle"><li><details open=""><summary>1. Singly Linked List</summary><ul id="9561988d-0ab1-400b-8190-6e3efb843a6a" class="bulleted-list"><li style="list-style-type:disc">    It is a collection of nodes with a head and a tail<figure id="6da195df-2c8e-41af-80dd-b91bd9f9c86e" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2031.png"><img style="width:721px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2031.png"/></a></figure></li></ul><ul id="b24c667f-cb8e-4c4b-b741-ed2efb9be9b5" class="bulleted-list"><li style="list-style-type:disc">Since all the nodes are linked together in a sequential way, only a one-way traversal is possible<figure id="2b89ee48-eb0b-46aa-9e39-29b2e7ba89cc" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2032.png"><img style="width:578px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2032.png"/></a></figure></li></ul><ul id="bb444ea8-8a07-45c6-8726-050fad47f332" class="bulleted-list"><li style="list-style-type:disc">Each node of the singly linked list contains one or more data fields and an address field that contains the reference to the next node.<figure id="c38e23e8-1efa-491e-b4cb-a87bfcec43be" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2033.png"><img style="width:553px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2033.png"/></a></figure></li></ul></details></li></ul><ul id="9bc97077-88f3-4741-b417-e8a3f91045c1" class="toggle"><li><details open=""><summary>2. Doubly Linked List</summary><ul id="3284a063-394e-4d15-9f95-4e23287bf7c7" class="bulleted-list"><li style="list-style-type:disc">Each node in a doubly linked list contains an extra memory to store the address of the previous node, together with the address of the next node and data. <figure id="1a2fbd61-8665-4c65-a163-6864519a4e15" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2034.png"><img style="width:773px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2034.png"/></a></figure></li></ul><ul id="7bec7e25-601a-4fc6-a551-23be65d912f7" class="bulleted-list"><li style="list-style-type:disc">There are two null values in a doubly linked list, they are located at the first node’s previous field and the last node’s next field<figure id="e8ef397a-e600-486d-94b4-4b7169f6cb73" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2035.png"><img style="width:825px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2035.png"/></a></figure></li></ul><ul id="a6fc4968-3b49-48f6-b9be-e57780b46fae" class="bulleted-list"><li style="list-style-type:disc">Advantages of Doubly Linked List<ol type="1" id="5ef23ba6-74ef-45db-9d08-7f77ee47d449" class="numbered-list" start="1"><li><strong>Ease of traversal: </strong>A doubly linked list can be traversed in both the forward and backward direction because it has both previous and next reference variables.<figure id="74a3e279-42a5-4eea-9b09-23b771e71995" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2036.png"><img style="width:697px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2036.png"/></a></figure></li></ol><ol type="1" id="4c12d037-e89e-45f7-a036-82c49f0313e7" class="numbered-list" start="2"><li><strong>More Efficient Insert, Delete and Search operations: </strong>It will be easier to delete, insert or search in a doubly linked list since we can get the previous node using the previous reference variable. <figure id="7d2fa040-4667-4073-92f9-9751b827b75e" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2037.png"><img style="width:673px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2037.png"/></a></figure></li></ol></li></ul><ul id="a19819ba-12b3-4bc8-8c7d-2d3910bf69ca" class="bulleted-list"><li style="list-style-type:disc">Disadvantages of doubly linked list<ol type="1" id="22855366-119b-4d8d-8d5d-48826414ce5f" class="numbered-list" start="1"><li><strong>More Memory Space:</strong> A doubly linked list requires more space because here we need to store the address of the previous node along with the next node&#x27;s address. <figure id="6895edea-94ae-4b70-ad54-2fa3d6fcae9d" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2038.png"><img style="width:653px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2038.png"/></a></figure></li></ol><ol type="1" id="1ef42df6-5868-4b16-88e9-80ec166fa468" class="numbered-list" start="2"><li><strong>Deletion, Insertion - The number of modifications increase</strong>d<strong>: </strong> It is because we would need to modify the previous and next variables of the nodes<figure id="b798b5f8-635b-4393-a196-92131021e054" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2039.png"><img style="width:725px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2039.png"/></a></figure></li></ol></li></ul></details></li></ul><ul id="7d51e13a-2a73-4d2d-9fb4-e106ab1d514b" class="toggle"><li><details open=""><summary>3. Circular Linked List</summary><ul id="ce84ea5c-4389-4628-aad1-689c7d2c3d74" class="bulleted-list"><li style="list-style-type:disc">A circular list is a list in which the link field that is the Next of the last node is made to refer to the first node of the list. <figure id="f8bd4c7d-ebba-415a-8bb5-e90c23869576" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2040.png"><img style="width:301px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2040.png"/></a></figure></li></ul><ul id="3f1fcee5-a724-44d3-93a5-2285e43ed7f9" class="bulleted-list"><li style="list-style-type:disc">A circular linked list does not contain null values. </li></ul><ul id="7cb50d9f-ea5e-4813-b68e-1ab1de11e76f" class="bulleted-list"><li style="list-style-type:disc">We can implement the Circular linked list either using A singly or doubly linked list.</li></ul><ul id="8fca224b-250d-44b2-9890-c43b4bdbe6ee" class="bulleted-list"><li style="list-style-type:disc">If we implement this circular linked list using a singly linked list, the next of the last node will contain the address of the first node.<figure id="dd85c7d0-92b9-4678-aba0-e44bfcd6f914" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2041.png"><img style="width:495px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2041.png"/></a></figure></li></ul><ul id="9dc65858-d633-4574-b5aa-4630148c0155" class="bulleted-list"><li style="list-style-type:disc">If the implementation is done using a doubly linked list, the next of the last node will contain the address of the first node and the previous reference of the first node will contain the address of the last node. <figure id="05f7aba8-581e-446b-8de4-f36bb7b5d3bd" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2042.png"><img style="width:674px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2042.png"/></a></figure></li></ul><ul id="2dfba416-8896-48bb-80bc-b3d02ec4e942" class="bulleted-list"><li style="list-style-type:disc">Advantages of Circular Linked List<ol type="1" id="42fb1ad0-0c09-4117-bf31-c48f9d35540a" class="numbered-list" start="1"><li>Easier traversal than Singly Linked Lists<figure id="c148255a-9687-4ec4-8b8d-a3efbae3a0c8" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2043.png"><img style="width:513px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2043.png"/></a></figure></li></ol><ol type="1" id="9d077815-71ff-4ede-a8c5-decb0b792d19" class="numbered-list" start="2"><li>Useful when accessed in a loop<figure id="9d2a0ef9-374a-4873-8a57-086263cb17c3" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2044.png"><img style="width:545px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2044.png"/></a></figure></li></ol></li></ul><ul id="a1e37969-bc9e-49f5-8942-6e9a2ece909b" class="bulleted-list"><li style="list-style-type:disc">Disadvantages<ol type="1" id="74668c4d-a9e7-49ea-bd21-5280709654b6" class="numbered-list" start="1"><li>It has a potential to be trapped in an infinite loop because we wouldn’t have any null value to stop the traversal<figure id="465294c7-8311-4c28-8e31-3157107baf19" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2045.png"><img style="width:477px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2045.png"/></a></figure></li></ol><ol type="1" id="67c4fbbd-b26c-459c-89c5-3aaf33b7545d" class="numbered-list" start="2"><li>Operations such as reversing a circular linked list are complex as compared to doing the same in a singly linked list or a doubly linked list.<figure id="3b7a9879-605f-4200-95a7-e1b20f2f44ab" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2046.png"><img style="width:391px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2046.png"/></a></figure></li></ol></li></ul></details></li></ul></details></li></ul><ul id="2ef50c8b-60fd-4758-8de9-c86c27d06cd3" class="toggle"><li><details open=""><summary><strong>Applications of Linked List</strong></summary><figure id="fdd2f8c3-dec6-413a-82c7-55173180d337" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2047.png"><img style="width:572px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2047.png"/></a></figure></details></li></ul><ul id="5649d954-9d62-42f2-9a24-95dfc4bc0245" class="toggle"><li><details open=""><summary><strong>Summary</strong></summary><ol type="1" id="f125372a-c623-4cad-9176-dc2821906556" class="numbered-list" start="1"><li>A linear list is an ordered collection of values. Arrays and linear lists are linear lists.</li></ol><ol type="1" id="01af655b-aea3-406c-8f31-c1d172f32e25" class="numbered-list" start="2"><li>An array is a collection of homogeneous elements stored continuously and its size is fixed. </li></ol><ol type="1" id="781cfc44-e085-436c-a407-74ce699f6e35" class="numbered-list" start="3"><li>Insertion and deletion operations are a bit difficult in arrays because of shifting elements.</li></ol><ol type="1" id="6bbd8a9f-86b0-4828-b8e1-319d6c8ff360" class="numbered-list" start="4"><li>A linked list is a collection of connected elements called nodes, arranged in a linear sequence. </li></ol><ol type="1" id="8ddd98a2-0c89-40cd-99ca-f7029ff1ab4c" class="numbered-list" start="5"><li>The size of a linked list is not fixed. It can grow or shrink dynamically</li></ol><ol type="1" id="a2629c47-10ed-400e-b5e4-05c2869290ea" class="numbered-list" start="6"><li>A singly linked list stores data and the address of the next node.</li></ol><ol type="1" id="88d045e1-9943-462d-9614-dd37e8cfee4f" class="numbered-list" start="7"><li>A doubly linked list contains a memory area to store the data, the address of the previous node, and the address of the next node. </li></ol><ol type="1" id="47832913-87cf-4d90-b978-adaaf7ce001e" class="numbered-list" start="8"><li>A circular list is a list in which the link field (next) of the last node refers to the first node of the list</li></ol></details></li></ul></div><p id="f5f54501-ea97-4da6-8a51-41b192b39877" class="">
+</p></div><h3 id="556bd9ab-c5b6-4bff-b519-c332e004e8d4" class=""><details open=""><summary>Demo</summary></details></h3><div class="indented"><h3 id="1ae19d4a-b6c2-47a2-ab3e-f7430e0dec37" class="">Chocolate Boxes</h3><p id="f0568b7c-4f2a-4d06-bf5a-5e4a7d20a9f4" class="">‘Camp Wonder’ is a summer camp program organized for kids for 5 days. The organizers have planned to conduct various games for the kids each day. On the last day, they planned a different game, where each kid is given an N number of boxes. Each box contains a bunch of chocolate. The kids will get the box one after another and whenever they get a box with an odd number of chocolates, then they have to destroy the first box they got. After getting all the boxes, they have to display the number of chocolates in each box they have. How will you implement the above scenario using a C++ data structure?</p><p id="a8426169-ad5b-468a-841f-3c36bee172d5" class=""><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>input Format</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></p><p id="3d09c147-395f-4d04-b482-e923261652b0" class="">The first input is the number of boxes which should be &gt;0 and ≤10</p><p id="76c85afa-5c31-4472-ab06-d46cf5dadf29" class="">The second input is the number of chocolates in each box.</p><p id="8a2254c4-b338-4d62-ba3a-9fcd7dfc12d0" class=""><strong><strong><strong><strong><strong>Output Format</strong></strong></strong></strong></strong></p><p id="9fad13fc-c11a-4e77-bc4e-654dfb3fb3d2" class="">The output should print the number of chocolates in the box available. If the number of boxes ≤0 or &gt;10, then print ‘Invalid input’. </p><p id="853c48c5-3876-494a-8054-5cedc613b3fe" class="">If the first box contains an odd number or negative value, then print ‘<strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>Sorry!! The First box always should contain positive even no. of chocolates</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></p></div></div><p id="bc50ed6f-b7eb-43c4-82a7-5f770e4a9aca" class="">
+</p><p id="f97ace66-7ace-4478-8efa-70b9e5bb7408" class="">
+</p><p id="093f00e6-109e-4d48-9f07-7d0b4deab478" class="">
+</p><p id="3c513ad9-3ecc-4902-900a-f56b5e7f3189" class="">
+</p><ul id="eed817d9-88cc-443f-a3d0-7412e61af1e8" class="toggle"><li><details open=""><summary>Dynamic and Static Arry</summary><ol type="1" id="9e8b6f69-eb6e-4db3-96e5-b19d64e45333" class="numbered-list" start="1"><li>When and where is a static array used?<p id="cf230819-0108-4069-9fcb-f6568e788763" class="">1). Storing and accessing sequential data.</p><p id="8d8211d8-a221-44a1-a4c1-31e09becf290" class="">2). Temporarily storing objects</p><p id="f3d96499-2b44-4e3e-99d0-f5d7ac953f2e" class="">3). Used by Io routines as buffers</p><p id="ea10d7db-e843-4404-b180-5cabba13ce42" class="">4). Lookup tables and inverse lookup tables</p><p id="6ee101e9-317c-4407-af35-ac8a17dfd6b5" class="">5). Can be used to return multiple values from a function</p><p id="03c1a936-eadb-48f9-93c8-9be0cdafd932" class="">6). Used in dynamic programming to cache answers to subproblems</p><p id="7f79b35c-ee68-4518-bea7-f2c7aebd575b" class="">Example of the static array:</p><p id="1e579b2a-027b-4948-8ca6-fdde1aeb3262" class="">A=[44,33,22,33,12,67,78,89,0]</p></li></ol><ol type="1" id="1619132e-d168-464f-a56e-185e6a5cf481" class="numbered-list" start="2"><li>Dynamic Arry → The dynamic array can grow and shrink in size</li></ol></details></li></ul><ul id="611db3ee-a81d-4b33-95ca-4a3572207980" class="toggle"><li><details open=""><summary>Big O Notation</summary><ul id="a5fb1fa6-a1c6-4a33-961b-b14d14bf0aab" class="toggle"><li><details open=""><summary>What is Big O Notation</summary><figure id="9f5e54c2-e168-43d1-bd52-e076e12fba10"><a href="https://ferry.vercel.app/blog/silaturahmi-dengan-big-o-notation" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Silaturahmi Dengan Big O Notation</div><div class="bookmark-description">Big O Notation biasa digunakan untuk menghitung kompleksitas algoritma. Fungsinya untuk mengukur kompleksitas dari sebuah algoritma. Dalam pemrograman dan struktur data, ini sering dijadikan pedoman sebelum membuat keputusan pendekatan algoritma yang akan dipakai. Big O notation sendiri adalah tingkat operasi dari algoritma terhadap jumlah elemen yang diproses.</div></div><div class="bookmark-href"><img src="https://ferry.vercel.app/favicon-32x32.png" class="icon bookmark-icon"/>https://ferry.vercel.app/blog/silaturahmi-dengan-big-o-notation</div></div><img src="https://images.ctfassets.net/7wjlcr9d5ii8/6lpwlR6tWWSIpn1PxmNZfC/9126ee53f96b1571195ff827d35e8bb1/bigocheatsheet.jpg" class="bookmark-image"/></a></figure></details></li></ul><p id="14154a72-a734-4b4f-8ec6-03c294bedf82" class=""><strong>Time Complexity</strong></p><ul id="c1ea1041-f843-47db-8653-5a82c9c3b218" class="toggle"><li><details open=""><summary><strong>O(1) Constant Time - Excellent</strong></summary><p id="6d0eb726-8556-4d3c-9b39-36efd549f613" class="">The fastest algorithm. Regardless of how big the input is, the time for running is will be the same.  Examples of O(1) complexity:</p><ol type="1" id="1368268d-22f3-4882-9abf-188fcda964ae" class="numbered-list" start="1"><li>Find if a number is even or odd.</li></ol><ol type="1" id="b2e50b33-bf1f-4c4d-a5d8-130c94c2257d" class="numbered-list" start="2"><li>Check if an item on an array is null.</li></ol><ol type="1" id="3e56644e-14c9-49bb-ab08-d6bd83a803c0" class="numbered-list" start="3"><li>Find a value on a map</li></ol><ol type="1" id="5529a5b7-6cbf-4dfc-ba0a-d9e1966dab30" class="numbered-list" start="4"><li>Access an element by index in an array.</li></ol><ol type="1" id="dd6eaa90-b838-4119-b774-d3c6c2221288" class="numbered-list" start="5"><li>and many similar things</li></ol></details></li></ul><ul id="ed1d4bae-d701-4194-a78f-459b4bbe10fc" class="toggle"><li><details open=""><summary><strong>O(n) Linear time</strong></summary><p id="d72f36b1-4b45-46c5-8af7-fecf0707699c" class="">Linear time complexity o(n) means that as the input grows, the algorithms take proportionally longer. A function with a linear time complexity has a growth rate.  Linear time running implies visiting every element from the input in the worst-case scenario. Examples of O(n) linear times algorithms:</p><ol type="1" id="d4c4a57c-c970-45e4-bbcd-175d3b91661b" class="numbered-list" start="1"><li>Get the max/ min value in an array.</li></ol><ol type="1" id="3d2342fe-5501-42f3-a9a2-58146d0a6cf7" class="numbered-list" start="2"><li>Find a given element in a collection</li></ol><ol type="1" id="8d8011a3-e5f3-4215-a1db-a119574cfe70" class="numbered-list" start="3"><li>Print all the values in a list.</li></ol></details></li></ul><ul id="1f2047fd-667b-44b4-a719-9a535198cc3c" class="toggle"><li><details open=""><summary><strong>O(log(n)) Logarithmic Time</strong></summary><p id="0d535475-cc8b-4741-b94d-7c4219b91175" class="">The logarithmic algorithm means the process is not as much as the input size or n. <em>when an algorithm has O(log n) running time, it means that as the input size grows, the number of operations grows very slowly. </em><strong><em>Example: binary search</em></strong></p></details></li></ul><ul id="c3e41c6a-8c33-47ba-ae2a-fb303fb7d71e" class="toggle"><li><details open=""><summary><strong>O (n log(n) Linierithmic Algorithm</strong></summary><p id="ed4ab224-8f8a-456f-9ad1-851012d7cf08" class="">Linearithmic time complexity it’s slightly slower than a linear algorithm but still much better than a quadratic algorithm. Example:</p><ol type="1" id="cf5e081a-73da-4007-a5f9-00da1953fef2" class="numbered-list" start="1"><li>merge sort,</li></ol><ol type="1" id="0cf1bbfb-2271-4c66-aaac-1892c7b129b0" class="numbered-list" start="2"><li>quicksort</li></ol><p id="112c221c-66ad-4b31-a0d8-a7637690f9d2" class=""> 3. and other efficient sorting algorithms</p></details></li></ul><ul id="f816a5d8-34ca-4c76-b249-fb52b260308a" class="toggle"><li><details open=""><summary><strong>O(n^2) Quadratic</strong></summary><p id="9695bd8e-8b69-4060-a870-1eefd1adf829" class="">Exponential (base 2) running time means that the calculations performed by an algorithm double every time as the input grows. Examples:</p><ol type="1" id="5b475cc2-3f7f-461c-bffe-923fd68f9ec3" class="numbered-list" start="1"><li>Power Set: finding all the subsets on a set.</li></ol><ol type="1" id="620e4722-05a2-4c8a-b10f-0d985270a1de" class="numbered-list" start="2"><li>bubble sort</li></ol><ol type="1" id="cedb6822-0ab3-4a22-a830-912f52490727" class="numbered-list" start="3"><li>selection sort</li></ol><ol type="1" id="7e7c9a4d-c2b2-4c06-b1b7-739c7bb4dca1" class="numbered-list" start="4"><li>insertion sort.</li></ol></details></li></ul></details></li></ul><ul id="ceca4f01-ba24-4fe3-9bd8-9733ef6b8957" class="toggle"><li><details open=""><summary>Course Introduction</summary><ul id="c05a1da3-3fb0-4b81-9917-bd49d05aa53b" class="toggle"><li><details open=""><summary>Material</summary><figure id="44c3a954-18b1-4ef0-a77d-9b26850a2692"><div class="source"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/_b65e7611894ba175de27bd14793f894a_15UnionFind.pdf">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/86cd4cbf-92d6-48d1-8a7d-aebeee7a6256/_b65e7611894ba175de27bd14793f894a_15UnionFind.pdf</a></div></figure></details></li></ul><ul id="4a35145f-f5f2-4838-867a-7da7eb1362a3" class="bulleted-list"><li style="list-style-type:disc">Algorithm → Method for solving problem</li></ul><ul id="cda72f28-9999-4555-80b4-ab06f1d199db" class="bulleted-list"><li style="list-style-type:disc">Data Structure → Method to store information</li></ul><ul id="417a94a2-41fe-41c8-9c44-39fbf2d6a841" class="toggle"><li><details open=""><summary>Union-Find</summary><ul id="115d42b9-4633-4d6c-b40f-e35ddfbf7aab" class="bulleted-list"><li style="list-style-type:disc">Dynamic Connectivity<ol type="1" id="95f880da-54ac-4e2e-9aed-b56a0ded50c9" class="numbered-list" start="1"><li>Union → Conncect two objects</li></ol><ol type="1" id="f606a17c-f691-4dd2-88b4-991e3585f9dd" class="numbered-list" start="2"><li>Find/connected query → is thare a path connectiong the two objects.</li></ol><figure id="4937640e-ee2a-4463-813d-d81d997ed4e2" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%201.png"><img style="width:512px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%201.png"/></a></figure></li></ul><p id="d7538b9d-7fdd-4efd-95a4-0584d2d82d94" class=""> </p><ul id="fa4c6d3c-7158-45e2-b739-898287dc4b15" class="toggle"><li><details open=""><summary>Quick-Find</summary><ul id="4a1d3046-4afc-4946-9982-0f34def43475" class="bulleted-list"><li style="list-style-type:disc">Quick Find [eager approach]<figure id="e0ea703a-b3b9-44c1-aea1-767023d7b0dc" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%202.png"><img style="width:512px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%202.png"/></a></figure></li></ul><ul id="bdcc4745-2cd7-4234-9534-9ba11edf7057" class="bulleted-list"><li style="list-style-type:disc">Quick Find Java Implementation<figure id="6430abbd-db32-45ea-a2c1-208336a6a9ed" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%203.png"><img style="width:512px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%203.png"/></a></figure></li></ul><ul id="b4a6f75b-d0c2-4cc1-8d1a-28ccec89114e" class="bulleted-list"><li style="list-style-type:disc">Quick- Find is too Slow<figure id="1a3e48ed-30fd-4250-aeb9-d3712246370f" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%204.png"><img style="width:512px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%204.png"/></a></figure></li></ul></details></li></ul><ul id="f4ae57ff-9a0f-41f0-afb1-60631b7967ce" class="toggle"><li><details open=""><summary>Quick-Union</summary><ul id="fa14ba3a-e176-4587-b9c0-7c235200b165" class="bulleted-list"><li style="list-style-type:disc">lazy approach<figure id="e2a72452-7570-466a-9289-228e1c1d07d4" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%205.png"><img style="width:512px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%205.png"/></a></figure></li></ul><ul id="85fb0bec-b287-4a19-8656-bb1ca7f444e6" class="bulleted-list"><li style="list-style-type:disc">Java Implementation of Quick-Union<figure id="46788992-436e-413d-8bdc-43ab31d09cc5" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%206.png"><img style="width:512px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%206.png"/></a></figure></li></ul></details></li></ul></details></li></ul><ul id="963b7cdb-e2f5-4a93-abe9-03d00aa71750" class="toggle"><li><details open=""><summary>Analysis of Algorithms</summary><ul id="e55bf36a-cebb-4ae0-ab72-cc106a8bdf65" class="toggle"><li><details open=""><summary>Materials</summary><figure id="c7f4507a-5c2b-4eb2-9b9c-0aee28ce7725"><div class="source"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/_b65e7611894ba175de27bd14793f894a_15UnionFind%201.pdf">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3d405d7b-905a-41c7-9b14-e9f8c042e04e/_b65e7611894ba175de27bd14793f894a_15UnionFind.pdf</a></div></figure></details></li></ul><p id="f1114591-5005-49ee-acd0-847f680eebea" class="">Reason to Analyze algorithms</p><ul id="f029f0f3-1780-414c-b639-440e10f5e380" class="bulleted-list"><li style="list-style-type:disc">Predict performance</li></ul><ul id="e690d5f0-6d85-4681-98e5-2e3c14a15f21" class="bulleted-list"><li style="list-style-type:disc">Compare algorithms</li></ul><ul id="22ee6cfc-7c8a-46a4-a82f-31e17c3eaf26" class="bulleted-list"><li style="list-style-type:disc">Provide guarantees</li></ul><ul id="d5ed534f-3c2f-48eb-a43e-9fa8f99f3b0a" class="bulleted-list"><li style="list-style-type:disc">Understand theoritical basis</li></ul><ul id="c7cde8a8-5019-422b-b2e4-77f7015e1aad" class="bulleted-list"><li style="list-style-type:disc">avoid performance bugs</li></ul><p id="aa3d1f6d-bc61-4cc4-a024-1b18276f0ec3" class=""> Algorithm Analysis Method<div class="indented"><ul id="70a2441e-5f0d-45b4-a183-d3d8454b375d" class="toggle"><li><details open=""><summary>Observation</summary></details></li></ul><ul id="68062852-119a-43f2-beca-278f22ba7455" class="toggle"><li><details open=""><summary>Mathematical Models</summary><figure id="aacfd04a-a46f-4f80-b97f-bbff59267410" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%207.png"><img style="width:512px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%207.png"/></a></figure></details></li></ul><ul id="814db527-6424-41f7-881d-1146eaec81a7" class="toggle"><li><details open=""><summary>Order-of-Growth Classifications</summary><figure id="4157c68d-701a-42a7-b3b2-5138df22dfa1" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%208.png"><img style="width:512px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%208.png"/></a></figure><figure id="e01ca669-61ce-4ca4-a41a-b8e6659f5038" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%209.png"><img style="width:512px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%209.png"/></a></figure><p id="fd927e5e-8c94-427c-aa11-d41136746d81" class="">Commonly-used notations in the theory of algorithms</p><figure id="7d840244-7527-4a30-88ed-60a8273d3f2d" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%2010.png"><img style="width:512px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%2010.png"/></a></figure></details></li></ul></div></p></details></li></ul><ul id="2f12a9e3-678d-4c82-9ec0-cab494481afe" class="toggle"><li><details open=""><summary>Memory</summary><p id="eda7f818-b86f-450b-a635-ec9a6dea7c17" class="">Typical memory usage for primitive types and arrays</p><figure id="5a373d4b-43e0-47fb-8ce5-1fc2d34861ed" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%2011.png"><img style="width:512px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%2011.png"/></a></figure></details></li></ul></details></li></ul><ul id="d1e4a18e-0efa-439b-989e-727ce1bbaf0e" class="toggle"><li><details open=""><summary>Stack and Queues</summary><ul id="570d1336-96b9-4b9f-b0e0-1c7070f39274" class="toggle"><li><details open=""><summary>Stack API</summary><p id="56a71eb7-3833-4d12-a0ff-e1a0d83f07da" class="">Stack and Queues</p><figure id="bb4e7483-6295-4c20-a9a9-4d832a30d6ff" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%2012.png"><img style="width:512px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%2012.png"/></a></figure><p id="1a54c7b9-89e0-4672-b59f-205e7cc0d145" class="">
+</p><ul id="997fafbb-1391-4ab3-93c3-60b65d0bf817" class="toggle"><li><details open=""><summary>Stack: linked-list Implementation in Java</summary><ul id="3032879a-c856-4b5b-86b0-219da09c691d" class="toggle"><li><details open=""><summary>Pre-Materials (Fundamental of Linked List)</summary><p id="550a86db-a4c0-46fe-a5b4-d28fd0e5b220" class="">Unlike arrays, linked list elements are not stored  at a contiguous location; elements are linked using pointers.</p><figure id="05417d84-b248-448d-bc0f-4c5499313b8a" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%2013.png"><img style="width:759px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%2013.png"/></a></figure><p id="0b0c9377-719b-4629-aeb2-ea0d6311768e" class=""><strong>Why Linked List?</strong></p><p id="0f3994c0-a739-4723-ba75-b399f046eba0" class="">Arrays can be used to store linear data of similar types, but arrays have the following limitations.</p><p id="b19a1c28-9a7f-4112-ad24-e8f2e298e3bc" class=""><strong>1) </strong><strong><em><span style="border-bottom:0.05em solid">The size of the arrays is fixed: </span></em></strong>So we must know the upper limit on the number of elements in advance. Also, generally, the allocated memory is equal to the upper limit irrespective of the usage.</p><p id="ce7f1fd6-ae9b-4cf3-9ed6-14bcc1e7e7eb" class=""><strong>2) </strong><strong><span style="border-bottom:0.05em solid"><em>Inserting a new element in an array of elements is expensive</em></span></strong><strong><em> </em></strong>because the room has to be created for the new elements and to create room existing elements have to be shifted.</p><p id="190a07d2-1e72-4dbc-91b6-26f687fe5c74" class="">For example, in a system, if we maintain a sorted list IDs in an array id[ ].</p><p id="62f180ba-abd0-40b1-a27a-03992f20a308" class="">id[ ]=[1000, 1010, 1050, 2000, 2040]</p><p id="fef319c6-e054-43cc-8a8b-4b26b4f1a30c" class="">and we want ot insert a new ID 1005, then to maintain the shorted order, we have to move all the elements after 1000 (excluding 1000).</p><p id="cd992ca7-ce81-454c-8f48-8a7da9b55f41" class="">Deletion is also expensive with arrays until unless some special techniques are used. For example, to delete 1010 in id[ ], everything after 1010 has to be moved.</p><p id="07869b3c-20de-4fb1-9e74-2d92929d6de6" class="">Advantages of Linked List over arrays:</p><ol type="1" id="4a66e1ea-c224-4fdf-8f75-64866dcac83b" class="numbered-list" start="1"><li>Dynamic size</li></ol><ol type="1" id="e94ddfaf-a4d9-40a0-876a-4737c3ba174f" class="numbered-list" start="2"><li>Ease of insertion/deletion</li></ol><p id="1aabecfb-19b6-4820-aaa2-a500531a3d94" class="">Drawbacks of LinkedList</p><ul id="624a6308-bac1-4cb5-9285-f983bbcd2319" class="bulleted-list"><li style="list-style-type:disc">Random access is not allowed. We nedd to access elements sequentially starting form the first node. We can no do binary search with linkedlist efficiently with default implementation.</li></ul><ul id="6bd162ee-7d1f-4801-ac4a-79795bbc2742" class="bulleted-list"><li style="list-style-type:disc">Extra memory space for a pointer is required with each element of the list.</li></ul><ul id="68341ff3-8ecb-404e-adbd-a5208ac8ddea" class="bulleted-list"><li style="list-style-type:disc">Not cache friendly. Since array elements are contiguous locations, there is locality of reference which is not there in case of linked lists.</li></ul><p id="0838ee36-439e-4386-a081-2ee9227955e8" class="">Representation:</p><p id="c1b7e5d4-24dc-4e6b-a8eb-aa9033ee7571" class="">A linked list is representated by a pointer to the first node of the linked list. The first node is called the head. If the linked list is empty, then the value of the head is NULL.</p><p id="0e2786ca-0522-4dcd-9db9-70e927605189" class="">Each node in a list consist of at least two parts:</p><p id="78bb9451-2ffe-47e1-9f05-61603ea7208a" class="">1) Data</p><p id="e90bd1fb-92e2-403a-b063-1068287d0f15" class="">2) Pointer (Or Reference ) to the next node.</p><p id="3ed32816-1acc-4644-b7b3-7240e129dc14" class="">In Java or C#, LinkedList can be represented as a class and a Node as a separate class. The LinkedList class contains a reference of Node class type.</p></details></li></ul><ul id="7f3021cc-b597-43af-a3d7-2737bff72824" class="toggle"><li><details open=""><summary> Stack pop : linked-list implementation</summary><figure id="a60f2635-79a0-4580-bd3d-fe4258211352" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%2014.png"><img style="width:512px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%2014.png"/></a></figure></details></li></ul><ul id="0d138375-eae1-4d96-bf55-50182070f3fb" class="toggle"><li><details open=""><summary>Stack push: linked-list Implementation</summary><figure id="19e5b32c-6153-4470-8215-52456bdb63d4" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%2015.png"><img style="width:512px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%2015.png"/></a></figure></details></li></ul><pre id="4ed98a78-12f6-4490-97ad-5b895c7597b3" class="code"><code>public class LinkedStackOfStrings {
+    private Node first=null;
+    private class Node{
+        String item;
+        Node next;
+    }
+    public boolean isEmpty(){
+        return  first==null;
+    }
+    public void push (String item){
+        Node oldfirst= first;
+        first = new Node();
+        first.item=item;
+        first.next=oldfirst;
+    }
+    public String pop(){
+        String item = first.item;
+        first= first.next;
+        return  item;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        LinkedStackOfStrings  linklist= new LinkedStackOfStrings();
+        System.out.println(linklist.isEmpty());
+        linklist.push(&quot;Mario&quot;);
+        linklist.push(&quot;Tiara&quot;);
+        System.out.println(linklist.pop());
+    }
+}
+//true
+//Tiara</code></pre></details></li></ul><ul id="931ce08f-e18c-47e0-921d-b61447fe948b" class="toggle"><li><details open=""><summary>Stack: Array Implementation</summary><ul id="a126b77f-7087-4ed8-8415-c5e1ca2dca3c" class="bulleted-list"><li style="list-style-type:disc">Use array s[] to store N items on  stack.</li></ul><ul id="3a970315-bf5b-4dec-b9f1-8363d6019394" class="bulleted-list"><li style="list-style-type:disc">push () : add new item at s[N]</li></ul><ul id="26b1618a-f5bd-4d32-9c0d-5b56def0202d" class="bulleted-list"><li style="list-style-type:disc">pop(): remove item from s[N-1]</li></ul><figure id="663037d9-3180-4dfc-9207-3bb598bd410d" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%2016.png"><img style="width:512px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%2016.png"/></a></figure><pre id="5dd87dae-3b62-4a76-8a52-f7849411c957" class="code"><code>public class FixedCapacityStackOfStrings {
+    private  String [] s;
+    private  int N=0;
+    public  FixedCapacityStackOfStrings(int capacity){
+        s = new String[capacity];
+    }
+
+    public  boolean isEmpty(){
+        return N == 0;
+    }
+
+    public void push (String item){
+        s[N++]=item;
+    }
+
+    public String pop(){
+        return s[--N];
+    }
+}</code></pre></details></li></ul></details></li></ul><ul id="6fb05ec4-21cd-406b-87e7-fe74930f7079" class="toggle"><li><details open=""><summary>Resizing Arrays</summary><p id="9b01a703-709f-4cda-a765-23f5893a7110" class="">Stack : resizing-array implementation</p><ol type="1" id="0db0c345-8357-49d1-99f5-4bc9bf9bfac3" class="numbered-list" start="1"><li>How to grow an Array<p id="784364dc-f01d-4501-a227-44a4a51eba0c" class="">→ If array is full, create a new array of twice the size, and copy items</p><pre id="d311a0b1-31e5-4ad8-b562-d7bf0aea10ac" class="code"><code>public class ResizingArrayStackOfString {
+    private  String [] s ;
+    private  int N=0;
+    public  ResizingArrayStackOfString(){
+        s = new String[1];
+    }
+
+    public void push ( String item){
+        if (N==s.length)
+            resize(2* s.length);
+        s[N++]= item;
+    }
+
+    private  void resize ( int capacity){
+        String [] copy = new String[capacity];
+        for (int i=0;i&lt;N; i++){
+            copy[i]= s[i];
+        }
+        s= copy;
+    }
+}</code></pre></li></ol><ol type="1" id="c5aeb765-de09-47e7-b8f3-96827bf7be08" class="numbered-list" start="2"><li>How to shrink an Array<p id="e5a5a351-af61-429e-bd20-fe48e019ed1c" class="">push (): double size array s[] when array is full</p><p id="c7f48d61-3a63-463a-a64d-9dd3ebd058bc" class="">pop() : halve size of array s[] when array is one-quarter full</p><pre id="84e8fe0b-ba1a-46d1-9d5a-7020d64fce49" class="code"><code>public String pop(){
+        String item = s[--N];
+        s[N]=null;
+        if (N&gt; 0 &amp;&amp; N==s.length/4)
+            resize(s.length/2);
+        return  item;
+
+    }</code></pre></li></ol><p id="3d369210-28e5-41b6-90a4-d3efc5977f4b" class="">
+</p><figure id="cf0840db-5aba-40e5-8bc3-20e04d094da0" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%2017.png"><img style="width:512px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%2017.png"/></a></figure><p id="e0ff5a95-c853-4e9f-8a8c-511ccc6434c9" class="">
+</p></details></li></ul><ul id="a33fa747-880c-4268-ac2b-e95a601fa856" class="toggle"><li><details open=""><summary>Queue API</summary><figure id="7da069b6-a802-46ae-b517-f42cd3465030" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%2018.png"><img style="width:512px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%2018.png"/></a></figure><ul id="73d7533e-2541-47ba-a8c4-e29b4574312d" class="toggle"><li><details open=""><summary>Queue dequeue: linked-list implementation</summary><figure id="ed1903d2-52af-4c8a-9c2b-fd21ae3657ff" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%2019.png"><img style="width:512px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%2019.png"/></a></figure></details></li></ul><ul id="5558c0d7-b23b-418b-9cce-43878123bee8" class="toggle"><li><details open=""><summary>Queue enqueue: linked-list implementation</summary><figure id="d3ab2cad-fd9c-4a3b-b575-924cdf09b0c8" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%2020.png"><img style="width:512px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%2020.png"/></a></figure></details></li></ul><ul id="c8792c01-3da8-4e79-b115-29341cbc43a8" class="toggle"><li><details open=""><summary>Queue: linked-list implementation in Java</summary><pre id="eec87eb4-6bdd-47c2-91b5-6d7857d734ab" class="code"><code>public class LinkedQueueOfStrings {
+    private Node first, last;
+    private  class Node{
+        String item;
+       Node next;
+    }
+
+    public boolean isEmpty(){
+        return first==null;
+    }
+    public void enqueue (String item){
+        Node oldlast= last;
+        last = new Node();
+        last.item=item;
+        last.next=null;
+        if (isEmpty()) first=last;
+        else            oldlast.next=last;
+    }
+
+    public String dequeue(){
+        String item= first.item;
+        first = first.next;
+        if (isEmpty()) last= null;
+        return item;
+    }
+}</code></pre></details></li></ul></details></li></ul><ul id="03fa80e3-f42f-4104-b50a-1324c17ed513" class="toggle"><li><details open=""><summary>Generic</summary><p id="57b8e710-fc34-4055-adc9-72b4a7af5ca3" class="">Parameteried stack</p><figure id="1f7bf7f6-ee25-4338-86ac-e03558030ce2" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%2021.png"><img style="width:512px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%2021.png"/></a></figure><p id="2206ea80-2e50-48bd-b819-af4f084dfef3" class=""><strong>Generic stack: Array Implementation</strong></p><figure id="c20c6e46-0495-477f-9713-2ee4925cf2c3" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%2022.png"><img style="width:512px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%2022.png"/></a></figure><p id="d07d0337-2c39-416f-a469-633f3960a77a" class="">Generic Data Types : Autoboxing</p><figure id="f025c4f3-67b5-4fae-b9c0-2d4bc0ed0713" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%2023.png"><img style="width:512px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%2023.png"/></a></figure></details></li></ul><ul id="7e1ead4c-c2b7-48c1-bceb-55fa9aba1978" class="toggle"><li><details open=""><summary>Iterators</summary><ul id="68f33942-fdff-4e5e-ad2c-d4b759a7f6af" class="toggle"><li><details open=""><summary><strong>Definition</strong></summary><figure id="fa325148-5ab0-458d-a21c-80f044453b93" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%2024.png"><img style="width:512px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%2024.png"/></a></figure></details></li></ul><ul id="00c43ede-5678-430f-a630-d2af691c65f1" class="toggle"><li><details open=""><summary><strong>Stack iterator: linked-list implementation</strong></summary><figure id="3e5f7471-654c-49c9-9f81-830fe0c820e8" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%2025.png"><img style="width:512px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%2025.png"/></a></figure></details></li></ul><ul id="32f593d9-b136-4b7a-bf67-d890c3f7efe9" class="toggle"><li><details open=""><summary><strong>Stack Iterator: Array implementation</strong></summary><figure id="41c48552-f952-4f41-88e8-4e72a8535d1d" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%2026.png"><img style="width:512px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%2026.png"/></a></figure></details></li></ul><p id="5752e786-8041-4b82-baca-103257ac3092" class="">
+</p></details></li></ul><ul id="fe066b0d-1c24-44d0-a9ed-62c318b557ef" class="toggle"><li><details open=""><summary>Stack and Queue Applications</summary><ul id="e8c43c81-63af-48da-b4f6-c26a179efa72" class="toggle"><li><details open=""><summary>Java Collections Library</summary><p id="8c241f85-12b5-4add-bf58-4d1c1143fd63" class=""> Java actually has </p><p id="2b65a108-1888-4c41-8b25-f2729805f53f" class=""><strong>List interface.</strong> java.util.List which is API for sequence of items. This API provide libararies like:</p><figure id="0daf8283-e5d1-41a0-89b9-143883d2f79b" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%2027.png"><img style="width:512px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%2027.png"/></a></figure><p id="14200876-6d5e-4570-bf6e-1a2f1005dc65" class=""><strong>Implementations. </strong><div class="indented"><ol type="1" id="b6a5cb76-f846-4898-9513-718cffb1e4ba" class="numbered-list" start="1"><li>Java.util.ArrayList uses resizing array. </li></ol><ol type="1" id="c2e765bf-f647-45be-a407-7c1d171d247e" class="numbered-list" start="2"><li>Java.util.LinkedList uses linked list.’</li></ol></div></p><p id="d2928cb7-3cdc-40c1-842a-878ab88c578c" class="">Java.util.stack<div class="indented"><p id="e60fd9b2-26d6-4a85-86df-d6a8a2db6a13" class="">support push(), pop () and ietarion</p><p id="2b80aa9a-3cf3-4cf6-93c8-2f33f45f4fbc" class="">Extends java.util.Vector, which impelements java.util.List interface, including, get() and remove.</p></div></p><p id="d88dde97-15a4-49e7-be9e-6ebd79fd0832" class="">
+</p><blockquote id="769c5669-341c-4cb4-bfdf-0bbe2ae2a586" class="">But we better to make our own stack, Queue and Bag implementations.  It because API from java library has to broad or bloated functions. So it’s not a good idea to have lots of operations in the same API. And We can’t know much about the performance.</blockquote><p id="6f95ae57-e99d-4e61-b05e-d0e5e5922afc" class="">
+</p></details></li></ul></details></li></ul></details></li></ul><ul id="3c9e16f7-8d9f-461f-aff0-c9e5ac822447" class="toggle"><li><details open=""><summary>Sorting</summary><p id="6377f1ef-4c3f-42fc-a2f9-a943604f4903" class="">Two Classic sorting Algorithm</p><ol type="1" id="4e18c4c2-32ec-4fd2-9700-66370c9fa0f5" class="numbered-list" start="1"><li>QuickSort → Java Sort for primitive types</li></ol><ol type="1" id="2acc9ec9-005a-4fa6-a792-14a79a530d77" class="numbered-list" start="2"><li>MergeSort → Java Sort For objects.</li></ol><ul id="c2851c72-b3c0-46f7-80de-141ffb1849f6" class="toggle"><li><details open=""><summary>MergeSort</summary><ul id="210f4880-817c-44dd-9879-3645da6f4600" class="toggle"><li><details open=""><summary>Material</summary><figure id="51f571a2-ae14-470a-b626-b07d274448e9"><div class="source"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/_96af337808d8f90939cd4d97c25898e4_22Mergesort.pdf">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/10e2171a-f823-44c0-9a02-c8db03e8761a/_96af337808d8f90939cd4d97c25898e4_22Mergesort.pdf</a></div></figure></details></li></ul><ul id="1aabc07f-0ddf-4910-a6fa-30ff0f0c8866" class="toggle"><li><details open=""><summary>Basic Plan of MergeSort</summary><ul id="7d1f8e8a-2271-4515-bf43-65f78892a2ad" class="bulleted-list"><li style="list-style-type:disc">Divide array into two helves</li></ul><ul id="abb3e99e-0ce1-477a-8adf-e29d838b30ab" class="bulleted-list"><li style="list-style-type:disc">Recursively sort each half.</li></ul><ul id="cd444e2f-03d2-4acd-a022-dc9db308e594" class="bulleted-list"><li style="list-style-type:disc">Merge two halves.<figure id="a99b3456-225e-48c1-b624-d2687938b119" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%2028.png"><img style="width:512px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%2028.png"/></a></figure></li></ul></details></li></ul><ul id="35935b6b-84a7-430d-8edf-d68b2b2ea03a" class="toggle"><li><details open=""><summary>Abstract in-place merge sort</summary><p id="0c3b26e6-ce2d-4e46-ad40-bd08e12e820e" class="">Goal: Given two sorted subbarrays a[low] to a [mid] and a[mid+1] to [high], replace with sorted subarray a[low] to [high]</p><figure id="488e8e5b-2d53-442e-93bc-edd06c198ab2" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%2029.png"><img style="width:512px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%2029.png"/></a></figure><figure id="455b1d2a-7371-4f37-a1e9-48c1887b1f57" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%2030.png"><img style="width:512px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%2030.png"/></a></figure><p id="fcf555b0-a2c1-4247-ac1e-e508423b5ef7" class="">i and j is the element that will be compered, and k is target element that will be replaced by comparison</p><figure id="2278e6e6-b852-49c1-b5c6-781fe08b7a50" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%2031.png"><img style="width:512px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%2031.png"/></a></figure><ul id="7c6644db-8cef-4e47-a8a9-30889a939d3d" class="toggle"><li><details open=""><summary>Loop 1:</summary><p id="0d6717a2-5186-4583-87c3-218ea678dd19" class="">aux[i] comapre to aux[j] ⇒ aux[i]&gt;aux[j] ⇒ a[k] replaces by aux[j]</p><figure id="c6218fd5-7971-47a4-9c61-235f221b56f1" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%2032.png"><img style="width:512px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%2032.png"/></a></figure><p id="51224183-59ea-4475-8b20-f57ac13112b3" class="">
+</p></details></li></ul><ul id="e628df44-8b1d-4584-9966-8480b73b01df" class="toggle"><li><details open=""><summary>Loop 2:</summary><p id="b6331638-cb35-4343-8940-be9dcaf5c806" class="">Because of at the loop 1, aux [i] &gt; aux [j] the, at this loop :</p><p id="a6752ff8-95c3-4034-ab03-7d4b823c8771" class="">aux[i] compare to aux[j+1] ⇒ aux[i] &gt; aux[j+1] ⇒ a[k+1] replaced by aux[j+1]</p><figure id="8485530d-c5fe-4fd6-867a-d4fc9f194243" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%2033.png"><img style="width:512px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/unnamed_(1)%2033.png"/></a></figure></details></li></ul><ul id="4ce7e286-8989-4aef-83b8-0280d74cdd07" class="toggle"><li><details open=""><summary>Loop 3:</summary><p id="2825328f-058a-4bd0-8b9c-0c88654f190e" class="">Because of at the loop 1, aux [i] &gt; aux [j+1] :</p><p id="b308cce5-002d-4e02-80f0-0224c549d9a2" class="">aux[i] compare to aux[j+2] ⇒ aux[i] == [j+] ⇒ a[k+2] replaced by aux[i]</p><figure id="5a5c826f-b0ab-452a-8fe2-5c0d2e3f6d69" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2048.png"><img style="width:916px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2048.png"/></a></figure></details></li></ul><ul id="73d51553-a26f-4137-832e-aaea008394df" class="toggle"><li><details open=""><summary>Loop 4:</summary><p id="623691b6-2948-437c-801c-e564dbb5fcc8" class="">aux[i+1] compare to aux[j+2] ⇒ aux[i+1] == aux[j+2] ⇒ a[k+3] replaces by aux[i+1]</p><figure id="c2746bdc-51f1-4c62-a92e-93064697880f" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2049.png"><img style="width:904px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2049.png"/></a></figure></details></li></ul><ul id="e0a69506-0aab-4ed3-acbd-cd3e81d93505" class="toggle"><li><details open=""><summary>Loop 5:</summary><p id="691af953-163f-4246-9aec-6e0a21ddab58" class="">aux[i+2] compare to aux[j+2] ⇒ aux[i+2]&gt; aux [j+2] ⇒ a[k+4] replaced by aux [j+2] </p><figure id="e5c36931-dca5-410c-9237-bb3ad4aaaf0b" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2050.png"><img style="width:913px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2050.png"/></a></figure></details></li></ul><ul id="e7e77123-341a-4783-8656-c29f94242fcd" class="toggle"><li><details open=""><summary>Loop 6:</summary><p id="84ec202c-9fad-4fbd-a8a5-f834b7fa9614" class="">aux[i+2[ compare to aux [j+3] ⇒ aux[i+2] &lt; aux[j+3] ⇒ a[k+5] replaced by aux[i+2]</p><figure id="b7b05236-a06f-4e6d-ae98-18406c298173" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2051.png"><img style="width:905px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2051.png"/></a></figure></details></li></ul><ul id="44e10bbb-2acc-4b7c-aa1c-b138329a5e34" class="toggle"><li><details open=""><summary>Loop 7:</summary><p id="63b6f7e5-618d-41da-b988-e278b3e1781b" class="">aux[i+3] compare to aux[j+3] ⇒ aux[i+3]&lt;aux[j+3] ⇒ a[k+6] replaced by aux[i+3]<div class="indented"><figure id="4b749b43-4d26-4c56-b324-631321f1df4f" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2052.png"><img style="width:917px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2052.png"/></a></figure></div></p></details></li></ul><ul id="3a2bfef0-7cbf-4511-a701-55f155b80f2e" class="toggle"><li><details open=""><summary>Loop 8:</summary><p id="2ed4f831-57b0-4553-9367-8993423bccc8" class="">aux [i+4]  compare to aux [j+3] ⇒ aux[i+4]==aux[j+3] ⇒ a[k+7] replaced by aux[i+4]</p><figure id="09e54579-4941-4b3b-8650-f18782bf68d0" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2053.png"><img style="width:911px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2053.png"/></a></figure></details></li></ul><p id="527f1913-3581-4bea-9106-bd0193135542" class="">After loop 8, one subarray exhausted, take from other</p><figure id="dbcffb07-8bcc-454c-9628-db765f6f446e" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2054.png"><img style="width:900px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2054.png"/></a></figure><figure id="ee88dbd8-2e00-44d0-add6-a8e2fbbe9643" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2055.png"><img style="width:901px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2055.png"/></a></figure></details></li></ul><ul id="a38441c5-b62a-44bb-b8ca-d054c7d18ce1" class="toggle"><li><details open=""><summary>Java Implementation</summary><pre id="bc964909-3447-4713-a5b5-7496b2ca87db" class="code"><code>package App;
+
+import java.util.Arrays;
+public class MergeSort {
+    private  static  Comparable[] aux;
+    private  static  void merge(Comparable [] a, Comparable [] aux, int lo, int mid, int hi){
+        for (int k=lo; k&lt;=hi; k++){
+            aux[k]=a[k];
+        }
+        int i=lo, j=mid+1;
+        for (int k=lo; k&lt;=hi; k++){
+            if (i&gt;mid)      a[k]=aux[j++];
+            else if (j&gt;hi)  a[k]=aux[i++];
+            else if (less(aux[j], aux[i])) a[k]=aux[j++];
+            else                            a[k]=aux[i++];
+        }
+
+    }
+
+    private static boolean less(Comparable aux, Comparable aux1) {
+        return aux.compareTo(aux1) &lt;0;
+    }
+
+    private  static void sort (Comparable[] a, Comparable[] aux, int lo, int hi){
+        if (hi&lt;=lo)     return;
+        int mid= lo + (hi-lo)/2;
+        sort(a, aux, lo, mid);
+        sort(a, aux, mid+1, hi);
+        merge(a,aux,lo,mid,hi);
+    }
+
+    public  static  void sort (Comparable[] a){
+        aux= new Comparable [a.length];
+        sort(a, aux, 0, a.length-1);
+
+    }
+}</code></pre><p id="24f7aa3c-1098-429b-b2b0-4724e57b937a" class="">Test:</p><pre id="8bf05978-b470-44f1-8f6e-7ee692c01031" class="code"><code>public class MainApp {
+    public static void main(String[] args) {
+        Comparable [] a={4,6,8,3,1,5,7,9,0};
+        MergeSort.sort(a);
+        for (var i:a){
+            System.out.print(i);
+        }
+    }
+}
+
+Output=&gt; 013456789</code></pre></details></li></ul><ul id="6ea6b3c5-a59d-46c8-b18e-56bacbcea3ae" class="toggle"><li><details open=""><summary>Mergesort empirical analysis</summary><figure id="298410ff-ab48-417c-ad7b-8d8ddd98e31b" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2056.png"><img style="width:859px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2056.png"/></a></figure></details></li></ul><ul id="f315f8d3-08c3-4296-b85f-6cc3344b0f0c" class="toggle"><li><details open=""><summary>Mergesort analysis: Memory</summary><figure id="c6807919-1bb6-40b6-be3e-fcbb3e62a994" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2057.png"><img style="width:859px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2057.png"/></a></figure></details></li></ul><ul id="d263f73e-ab55-4969-a226-b7fd43a55c48" class="toggle"><li><details open=""><summary>MergeSort Practical improvements</summary><ul id="a6534b2b-5a5b-4af3-80cc-06e8a35a4347" class="toggle"><li><details open=""><summary>Use insertion for small subarrays</summary><figure id="5900feba-4fe5-43b7-afcf-a7dcb0f1e333" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2058.png"><img style="width:851px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2058.png"/></a></figure></details></li></ul><ul id="c7cf01de-70c4-460d-8440-59dfe843333d" class="toggle"><li><details open=""><summary>Stop if already sorted</summary><figure id="89a17975-0745-4cd0-a16f-2e08dc38a092" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2059.png"><img style="width:901px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2059.png"/></a></figure></details></li></ul><ul id="971d7ed3-b71d-4d9a-bdbf-e9074960559a" class="toggle"><li><details open=""><summary>Eliminate the copy to the auxiliary array</summary><figure id="8cf7e077-b1aa-4696-90b8-92fa5c474d72" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2060.png"><img style="width:919px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2060.png"/></a></figure></details></li></ul></details></li></ul></details></li></ul><ul id="579c24b8-839c-4b0e-8059-41207329bfa3" class="toggle"><li><details open=""><summary>QuickSort</summary><ul id="be622b64-11f6-4408-bdc4-c70a55ae1096" class="toggle"><li><details open=""><summary>Material</summary><figure id="1e5dca33-7542-4283-a57b-6e3177b4e944"><div class="source"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/_b65e7611894ba175de27bd14793f894a_15UnionFind%202.pdf">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e969983f-cc5f-428f-a8e9-74ed03327596/_b65e7611894ba175de27bd14793f894a_15UnionFind.pdf</a></div></figure><figure id="b4a30770-a4ef-4ad5-b6b0-fca38fdc937c"><div class="source"><a href="https://www.youtube.com/watch?v=ZHVk2blR45Q">https://www.youtube.com/watch?v=ZHVk2blR45Q</a></div></figure></details></li></ul><p id="017dcbf5-08dd-4302-81dd-a0da09cf2062" class="">It is s sorting algorithm based on the divide and conquers approach where:</p><p id="86cfdae1-ca95-4e80-ae50-080bcdd4455a" class="">An array is divided into subarrays by selecting a pivot element (element selected from the array).  There are many different versions of quickSort that pick pivot in different ways:<div class="indented"><ul id="501cf288-652f-4f36-a24a-39aca1f87d82" class="bulleted-list"><li style="list-style-type:disc">Always pick the first element as a pivot.</li></ul><ul id="390034ca-6a20-4feb-8e38-ba9a1767d6ca" class="bulleted-list"><li style="list-style-type:disc">Always pick the last element as the pivot (implemented below)</li></ul><ul id="3b2257ad-5dde-49d7-bbda-f8d753badd55" class="bulleted-list"><li style="list-style-type:disc">Pick a random element as a pivot.</li></ul><ul id="bb739b96-82eb-4413-a5b7-10b6798f8abf" class="bulleted-list"><li style="list-style-type:disc">Pick median as a pivot.</li></ul></div></p><p id="375c5a67-0386-4809-a13b-2d9d3852a922" class="">The key process in quickSort is partition(). The target of partitions is:<div class="indented"><ol type="1" id="2f21c361-3d9b-40af-9e60-39c267d8dee9" class="numbered-list" start="1"><li>Given an array and an element x of the array as a pivot.</li></ol><ol type="1" id="5fd33f1a-404c-407c-819d-fd6161ed4816" class="numbered-list" start="2"><li>Put x at its correct position in a sorted array and put all smaller elements (smaller than x) before x.</li></ol><ol type="1" id="144e58bb-e9f0-4834-a860-0fdf44b271cd" class="numbered-list" start="3"><li>Put all greater elements (greater than x) after x. All this should be done in linear time.</li></ol><ol type="1" id="ffc8e789-a945-4129-8738-16651bb394b1" class="numbered-list" start="4"><li>All this should be done in linear time.</li></ol></div></p><ul id="b0b23e5c-f2e5-4e87-badd-818049a52f66" class="toggle"><li><details open=""><summary><strong>PseudoCode of QuickSort</strong></summary><pre id="e9058125-49e3-4b21-8235-eb0444e9c94d" class="code"><code>quickSort(arr []  low, high){
+    if (low&lt;high){
+        pi=partition(arr, low, high);
+        quickSort (arr, low,pi-1); //Before pi
+        quickSort(arr, pi+1, high);
+    }
+}
+
+partition (arr[], low, high){
+    pivot= arr[high];
+    i=(low-1);
+    for (arr[j]&lt; pivot){
+        swap arr[i] and arr[j]
+    }
+
+    swap arr[i+1] and arr[high]
+    return (i+1)
+}</code></pre></details></li></ul><p id="d5c1c6bb-6bd5-4541-a182-8c1f977fe04d" class="">
+</p></details></li></ul></details></li></ul><ul id="4fcf4e97-c71c-4ffe-b069-a3c247bb9e4f" class="toggle"><li><details open=""><summary>Recursive</summary><p id="40e6ee2e-c02c-4b5c-b5fa-a8fa5bba6121" class="">The best analogy for recursive is by imagining people who waiting in line to use an ATM.  In this situation, the last person in ques asks “How many people are in front of me?” What this person will do is ask the next person on its next, then the person who asked will do the same to the next person. It will be repetitive until the question reaches the person who is the 1st in the queue. </p><figure id="b099610c-b113-49ba-9705-c4cfffe6dd93" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2061.png"><img style="width:1913px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2061.png"/></a></figure><p id="dc64eaab-9f74-4769-9127-2ae0d84f6592" class="">Then, when the first person in the queue gets the question, it will return 1. Then, the 2nd person in the queue will return 1 + 1,  the 3rd will return 2+1, and so on. </p><figure id="9fb34f91-5922-4040-9b2a-515a764fa102" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2062.png"><img style="width:849px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2062.png"/></a></figure><p id="1155e7e1-aabb-433b-bb39-03abd219e48e" class="">
+</p></details></li></ul><ul id="52ab3045-de03-4a9e-964f-3c77f60b4657" class="toggle"><li><details open=""><summary>Trees</summary><figure id="c2a0b324-d775-4959-b99f-554e9912ac8f"><div class="source"><a href="https://www.youtube.com/watch?v=fAAZixBzIAI&amp;t=1698s">https://www.youtube.com/watch?v=fAAZixBzIAI&amp;t=1698s</a></div></figure><p id="de5ef626-dcce-46ab-a3ac-985307dd1684" class="">A binary tree is a tree<mark class="highlight-orange_background"> </mark><strong><mark class="highlight-orange_background">data structure in which each node has no more than two children</mark></strong><strong>,</strong> which are referred to as the left child and the right child. </p><figure id="9ca16c8d-32d8-4726-a61f-a2ac85ff0918" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2063.png"><img style="width:220px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2063.png"/></a></figure><h3 id="9eff2b0d-d1f7-4938-889a-b4ab35598a84" class="">Traversing</h3><p id="d514900d-3456-43f1-b504-44a0fb880a7f" class="">There are two groups of traversing methods in Tree data structure which are <strong>Depth First Search (DFS) and Breadth First Search (BFS)</strong></p><ol type="1" id="33ed8465-7e64-4a7c-98a4-6bc2f649b274" class="numbered-list" start="1"><li><strong>Depth First Search (DFS)</strong><p id="d76a44f2-d64f-484b-829b-3f72d813bee2" class="">The algorithm starts at the root node and explores as far as possible along each branch before backtracking. The purpose of the algorithm is to mark each vertex as visited while avoiding cycles. The DFS algorithm works as follows:</p><ol type="1" id="e90a5dd9-d31a-41d4-a528-f9a58ca8b6f5" class="numbered-list" start="1"><li>Start by putting any one of the graph’s vertices on top of a stack.</li></ol><ol type="1" id="6040921c-b591-47c5-9af3-8c4a102a704c" class="numbered-list" start="2"><li>Take the top item of the stack and add it to the visited list</li></ol><ol type="1" id="b815cb54-b362-4264-a2f8-d717a0e3d254" class="numbered-list" start="3"><li>Create a list of that vertex’s adjacent nodes. Add the ones which aren’t in the visited list to the top of the stack.</li></ol><ol type="1" id="8806343f-e5ad-45de-b986-b0453ab94be6" class="numbered-list" start="4"><li>Keep repeating steps 2 and 3 until the stack is empty.</li></ol><h3 id="06170faf-df32-46cc-b338-c98407751683" class=""><details open=""><summary> <strong>How do implement the step in Programming?</strong></summary></details></h3><div class="indented"><ol type="1" id="8366a8f2-3f63-420e-b961-7a55088c0860" class="numbered-list" start="1"><li>Start with the root node which is <strong>a, </strong>and store that node to <a href="https://en.wikipedia.org/wiki/Stack_(abstract_data_type)">stack</a>. <figure id="2b34aaf9-850a-48c3-9259-42c286743922" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2064.png"><img style="width:733px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2064.png"/></a></figure></li></ol><ol type="1" id="717492df-a8e5-42fd-bf55-aa435a650f22" class="numbered-list" start="2"><li>Remove the a from the stack, and label it as the current node, and now a will be noted as the visited node<figure id="903badb5-537f-436c-b9b0-4c767bc821a6" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2065.png"><img style="width:867px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2065.png"/></a></figure></li></ol><p id="64566a09-dd38-498a-ac69-b7247aea092b" class=""> 3. From step 2, we can check whether the<strong> “a” node</strong> has children or not. If it has, then  <div class="indented"><p id="2c2d02f2-58b9-457f-94a8-182919a58f9c" class="">we put the children into the stack, in this case, the children are <strong>node c </strong>and <strong>node b. </strong></p></div></p><figure id="453c1393-5e62-4a5f-8bf3-f65f77cacc26" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2066.png"><img style="width:773px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2066.png"/></a></figure><ol type="1" id="26b99c84-68e4-4a0e-8a7f-bebc25b0cfc9" class="numbered-list" start="4"><li><strong>Afterward</strong>, the step will be repeated until the stack is empty. <ul id="1bce3e1b-728d-4a25-99c8-6df1d4bc93c9" class="toggle"><li><details open=""><summary>Node d</summary><figure id="a3c949ed-5c2c-492d-9a96-61243d4ea9ce" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2067.png"><img style="width:933px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2067.png"/></a></figure></details></li></ul><ul id="aa4cce7a-cdda-4a09-8741-74b207f7f96a" class="toggle"><li><details open=""><summary>Node e</summary><figure id="cf5a6863-e623-464f-988d-83b383fb8813" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2068.png"><img style="width:904px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2068.png"/></a></figure></details></li></ul><ul id="d80e54d8-e4e9-47b7-b391-eabdfa36a813" class="toggle"><li><details open=""><summary>Node c</summary><figure id="ede4a02c-bc87-4abd-b032-f50a85ebaf3e" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2069.png"><img style="width:853px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2069.png"/></a></figure></details></li></ul><ul id="375e7920-8221-4d07-9224-6a26b8996a52" class="toggle"><li><details open=""><summary>Node f</summary><p id="29539d60-d17e-4ab0-b62e-b4bf464c9cda" class="">At this point, the stack will be empty because Node f doesn’t have any children. </p><figure id="2468a5bd-c145-48a3-9555-94b483dc8e93" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2070.png"><img style="width:898px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2070.png"/></a></figure></details></li></ul></li></ol><p id="4c4fd9f3-7c3c-44d1-be78-0b038671478d" class="">
+</p><p id="27c142b4-b2cb-4023-8119-cdc246d0e2f7" class="">
+</p><p id="8a6048f2-eaf9-447a-8d70-9a429158e3c2" class="">
+</p></div><p id="1d88ecec-d785-4d18-901b-c1518da81d82" class="">There are three types of DFS traversals in Binary Trees:<div class="indented"><p id="8d84601b-f4f3-4d30-ba02-692611dd98dd" class="">                         <mark class="highlight-red"><strong>      B</strong></mark><div class="indented"><p id="843deaf8-d5e9-4bf8-9767-b86ce8e5c0d9" class=""><mark class="highlight-red"><strong>                      /       \</strong></mark><div class="indented"><p id="9c7379d8-01ef-49fe-8483-6de8b0767027" class=""><mark class="highlight-red"><strong>               A          C</strong></mark></p></div></p></div></p></div></p><ul id="c113ad4a-d1e9-4efc-b95e-7ca722ed94e2" class="bulleted-list"><li style="list-style-type:disc"><strong>In-Order</strong><p id="30af5ef5-934e-4d29-b0e1-91337d3ce2d4" class=""><strong>left </strong>then <strong>root </strong>then <strong>right ⇒ A→B→C</strong></p><pre id="935b8097-4729-4d8f-8cfd-47890d977836" class="code"><code>public void printInorder(){
+    if (left!=null){
+       left.printInorder();
+    }
+    Console.WriteLine(data);
+    if (right!=null){
+       right.printInorder();
+    }   
+}</code></pre></li></ul><ul id="be150fa0-c1a2-4d78-b0e5-a9fbc14eed5f" class="bulleted-list"><li style="list-style-type:disc"><strong>Pre-Order</strong><p id="52f8c765-fb53-47fd-9942-5a5411baeedd" class=""><strong>root, </strong>then <strong>left </strong>then <strong>right ⇒ B →A → C</strong></p><pre id="efb8bcf3-64ad-4b6e-9540-4ce588471831" class="code"><code>public void printPreOrder(){
+    Console.WriteLine(data);
+    if (left!=null){
+       left.printPreOrder();
+    }
+    if (right!=null){
+       right.printPreOrder();
+    }
+}</code></pre></li></ul><ul id="75437fc6-a3d8-441e-8f5a-7ac80a96f1c3" class="bulleted-list"><li style="list-style-type:disc"><strong>Post-Order</strong><p id="3dad54ea-4eee-49b7-a187-9de38497be6f" class=""><strong>left </strong>then <strong>right </strong>then <strong>root ⇒ A→C→ B</strong></p></li></ul><pre id="4fae9c09-5da7-4f73-a507-c3b071423026" class="code"><code>public void printPostOrder(){
+    if (left!=null){
+       left.printPostOrder();
+    }
+    if (right!=null){
+       right.printPostOrder();
+    }
+    Console.WriteLine(data);
+}</code></pre></li></ol><p id="8311d204-d058-42c1-a845-653a6e7c39d8" class="">
+</p><p id="cd593552-7ea4-462e-98af-3dd9be13901b" class="">
+</p><ol type="1" id="0443e128-0097-4c80-a77a-81d922f7b1d0" class="numbered-list" start="2"><li><strong>Breadth First Search (BFS)</strong><p id="fe4ff1db-1b36-4ca4-9964-31a114e39dff" class="">BFS is a traversing algorithm where you should start traversing from a selected node (source or starting node) and traverse the graph layerwise thus exploring the neighbor nodes (nodes that are directly connected to the source node). We must then move toward the next-level neighbor nodes.</p><p id="06cfdc2b-3e56-46bd-8266-624c2215c041" class="">Following steps for BFS</p><ol type="1" id="66ca3247-2c07-4561-a21d-89afd9f642a5" class="numbered-list" start="1"><li>First, move horizontal and visit all the nodes of the current layer</li></ol><ol type="1" id="5541e6c9-991b-4213-a825-8bedc16817b9" class="numbered-list" start="2"><li>move to the next layer</li></ol><figure id="ae4b8f98-99a4-4da1-b27f-c6166f1fd394" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2071.png"><img style="width:648px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2071.png"/></a></figure><ul id="87917457-5f6b-4b01-a7dd-2020ffeb5aef" class="toggle"><li><details open=""><summary> <strong>How do implement the step in Programming?</strong></summary><figure id="fed8346e-d5bb-42bf-9e3d-a01ece6e4a63" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2072.png"><img style="width:406px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2072.png"/></a></figure><p id="7e39f50a-3080-4551-a78a-8a7ff21be603" class="">To implement BFS, we can use <a href="https://www.geeksforgeeks.org/queue-data-structure/">Que</a></p><ol type="1" id="b8b3c9de-1683-49c9-89b5-12afa8bce0cf" class="numbered-list" start="1"><li>First, we insert the starting node into Que. <figure id="88340bab-0a01-4b10-8d76-eaeb2a0e937c" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2073.png"><img style="width:722px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2073.png"/></a></figure></li></ol><ol type="1" id="c53d2402-dd46-41f1-bd56-85716ef290aa" class="numbered-list" start="2"><li>Afterward, enqueue the node as the current node. <figure id="eb7e8a67-4b26-4177-94d1-bb0e0025011f" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2074.png"><img style="width:884px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2074.png"/></a></figure></li></ol><ol type="1" id="0babe99e-cc90-4726-84ad-ed5f6daee137" class="numbered-list" start="3"><li>Then, check the a’s children and insert them into the Queue<figure id="2566ff73-861a-46a8-ba74-44b4fb258889" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2075.png"><img style="width:878px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2075.png"/></a></figure></li></ol><ol type="1" id="7decc2a9-643a-4e05-8973-eba66480698b" class="numbered-list" start="4"><li>Repeat the steps until the queue is empty. </li></ol><p id="9e6fdaf5-37bc-4f57-9f70-fb141eb798fc" class="">
+</p><p id="943fa0db-593c-4993-a79b-831706929d08" class="">
+</p></details></li></ul><ul id="acbe1c1f-d070-4102-87cb-ea5c7b678daa" class="toggle"><li><details open=""><summary><strong>BFS Code</strong></summary><ol type="1" id="5a32450d-1b8b-4277-9141-6c50578853e4" class="numbered-list" start="1"><li><strong>Iterative</strong><pre id="19f09a37-23cb-441f-a252-d2c9b2bd5e39" class="code"><code>public void BreadtFirstTravers(Node start){
+            Queue&lt;Node&gt; queue= new Queue&lt;Node&gt;();
+            queue.Enqueue(start);
+            while(queue.Count&gt;0){
+                Node current=queue.Dequeue();
+                Console.WriteLine(current.value);
+                if (current.left!=null){
+                    queue.Enqueue(current.left);
+                }
+                if (current.right!=null){
+                    queue.Enqueue(current.right);
+                }
+            }
+        }</code></pre></li></ol><ol type="1" id="0f4df7e1-fdb9-447f-9d92-fbb6dfa5fbd6" class="numbered-list" start="2"><li><strong>Recursive</strong><pre id="15f3ebd3-7fa8-4752-be5e-0ace354f5695" class="code"><code>public Queue&lt;Node&gt; queue= new Queue&lt;Node&gt;();
+public void RBreadtFirstTravers(Node start){
+    queue.Enqueue(start);
+    if (queue.Count&lt;=0){
+        return;
+    }
+    else{
+        Node current = queue.Dequeue();
+        Console.WriteLine(current.value);
+        if (current.left!=null){
+            RBreadtFirstTravers(current.left);
+        }
+        if (current.right!=null){
+            RBreadtFirstTravers(current.right);
+        }
+    }
+}</code></pre></li></ol></details></li></ul></li></ol><h3 id="42f1d95f-08b0-459e-8671-b1f8b4c6ad0b" class="">Tr<strong>ee Include</strong></h3><p id="de69e90f-0f1e-4f5c-8841-466c601018eb" class="">The tree includes aims to check whether a target value exists or not in a tree. </p><figure id="141b6715-a757-4027-bb86-ef0f0489889e" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2076.png"><img style="width:946px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2076.png"/></a></figure><p id="30f558ad-232e-424a-8835-38f290a0af54" class=""><strong>A. Iterative solution Using BFS</strong><div class="indented"><p id="bf457bd6-20e6-443a-a3b3-27c512a61e35" class="">We can use BFS to run through the node and check if the node is equal to the target. </p><figure id="cdb35cc2-634c-4c8a-ba67-a008801bd714" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2077.png"><img style="width:1006px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2077.png"/></a></figure><p id="267894a4-a6f0-45c0-b4ff-db62796926cf" class="">Code implementation using BFS</p><pre id="eba7b085-7f95-4c05-860f-7a3fadf8f61a" class="code"><code>public bool Include (Node root, Char target){
+Queue&lt;Node&gt; queue = new Queue&lt;Node&gt;();
+queue.Enqueue(root);
+while(queue.Count&gt;0){
+    Node current = queue.Dequeue();
+    if (current.value==target){
+        return true;
+    }
+    if (current.left!=null) queue.Enqueue(current.left);
+    if (current.right!=null) queue.Enqueue(current.right);
+}
+
+return false;
+}</code></pre></div></p><p id="75f6e61b-93e0-4785-89b8-2ef45e9182c7" class=""><strong>B. Recursive Solution Using DFS</strong><div class="indented"><figure id="9bf6c046-402a-4b98-93dc-3be7c1fa5d3a" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2078.png"><img style="width:946px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2078.png"/></a></figure></div></p><h3 id="f63d4e69-d912-4d3c-87e0-7e1751bd9313" class="">Tree Sum</h3><p id="96c1500d-e01a-4b63-b9ca-ad4b7798dcb3" class="">We can use DFS or BFS to sum all node in a Tree</p><figure id="405b6e4f-07c8-4256-a957-a64154331806" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2079.png"><img style="width:467px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2079.png"/></a></figure><p id="24ec42e8-1e04-42fe-b4aa-9d8fc576082e" class=""> Code for Iterative solution <strong>Depth First</strong></p><pre id="01fe6be1-fab1-4ed4-8a28-bb4239bf74a9" class="code"><code>public int Sum (Node root){
+int sum=0;
+Stack&lt;Node&gt; stack = new Stack&lt;Node&gt;();
+stack.Push(root);
+while(stack.Count&gt;0){
+    Node current = stack.Pop();
+    sum+=current.data;
+    if (current.left!=null) stack.Push(current.left);
+    if (current.right!=null) stack.Push(current.right);
+}
+
+return sum;
+}</code></pre><p id="6a211f38-d234-4ce6-bb60-5a4f017aac5c" class="">Code for Recursive Solution</p><pre id="e947cbe9-848f-43f9-8cb7-589a2ba1ae89" class="code"><code>public int RSum (Node root){
+    if (root ==null) return 0;
+    return root.data + RSum(root.left) + RSum(root.right);
+}</code></pre><p id="f8567255-296d-4873-bb04-93bd98f91fa9" class="">
+</p><p id="9774f0a7-3eb0-4cb7-abfa-734419f80aca" class=""><strong>Tree Min and Max value</strong></p><ol type="1" id="9b22d8de-03a9-4a93-b088-ad7543bb7fef" class="numbered-list" start="1"><li>Min  Iterative<pre id="24d55846-adf1-4e94-918a-16f322333ac1" class="code"><code>public int Minvalue(Node root){
+  int min=int.MaxValue;
+  Stack&lt;Node&gt; stack = new Stack&lt;Node&gt;();
+  stack.Push(root);
+  while(stack.Count&gt;0){
+      Node current = stack.Pop();
+      if (current.data&lt;min) min=current.data;
+      if (current.left!=null) stack.Push(current.left);
+      if (current.right!=null) stack.Push(current.right);
+  }
+  return min;
+}</code></pre></li></ol><ol type="1" id="2092e4ad-dc0a-4b11-9d8c-df6eaf2c68e5" class="numbered-list" start="2"><li>Min recursive<pre id="65dc78c9-8aca-473f-80ad-e573c0960efa" class="code"><code>public int RMinvalue(Node root){
+    if (root ==null) return int.MaxValue;
+    int leftMin= RMinvalue(root.left);
+    int rigtMin= RMinvalue(root.right);
+    return Math.Min(root.data, Math.Min(leftMin,rigtMin));
+}</code></pre></li></ol><ol type="1" id="773f4d12-75da-4fe2-a6f6-c97c87c45f66" class="numbered-list" start="3"><li>Max recursive<pre id="8e964c34-07f0-4d00-beb0-7bee440ea06f" class="code"><code>public int RMaxnvalue(Node root){
+    if (root ==null) return int.MinValue;
+    int leftMin= RMaxnvalue(root.left);
+    int rigtMin= RMaxnvalue(root.right);
+    return Math.Max(root.data, Math.Max(leftMin,rigtMin));
+}</code></pre><p id="f00da6e3-c9a5-4e49-96fc-9be58a301160" class="">
+</p></li></ol><p id="637545a1-29a9-4788-ad40-2553665009a1" class=""><strong>Max Root to Leaf Path Sum</strong></p><p id="de95e05e-d80d-4de2-bf62-46fa15dd9476" class="">Write a function, <em>maxPathSum</em>, that takes in the root of a binary tree that contains number values. The function should return the maximum sum of any root to leaf path within the tree.</p><pre id="fcd58bda-d741-4d4d-b1a5-80b93faad080" class="code"><code>const a = new Node(3);
+const b = new Node(11);
+const c = new Node(4);
+const d = new Node(4);
+const e = new Node(-2);
+const f = new Node(1);
+
+a.left = b;
+a.right = c;
+b.left = d;
+b.right = e;
+c.right = f;
+
+//       3
+//    /    \
+//   11     4
+//  / \      \
+// 4   -2     1
+
+maxPathSum(a); // -&gt; 18</code></pre><p id="b693a8fb-913d-489a-80ff-26673df3f48f" class="">Max Path sum aim is to find the path that has maximum sum value. For example the max path sum of the following tree is 18 from (4+11+3) path. <div class="indented"><p id="394f5613-4ddc-45bd-8341-6343e3eecd16" class=""><strong>   </strong><mark class="highlight-red"><strong>  3
+   /    \
+  11     4
+  / \      \
+ 4   -2     1</strong></mark></p></div></p><p id="593ca7e3-9916-4ad1-944c-a2a42fcc03d0" class="">or the following tree has 20 as the <strong>Max Path Sum</strong></p><p id="f822046d-7a94-4268-a41c-478881671bb6" class=""><strong>   </strong><mark class="highlight-red"><strong>  5
+   /    \
+  11     3
+  / \      \
+ 4    2     1</strong></mark></p></details></li></ul><ul id="b8b636ec-666b-42e9-9b11-c7bd3ee13923" class="toggle"><li><details open=""><summary>Graph</summary><figure id="94e41509-ebb9-4fb7-8886-b8469cd3f868"><div class="source"><a href="https://www.youtube.com/watch?v=tWVWeAqZ0WU&amp;t=3964s">https://www.youtube.com/watch?v=tWVWeAqZ0WU&amp;t=3964s</a></div></figure><p id="7d677407-2254-46b3-b482-fddbf362f8a1" class="">A <a href="https://www.simplilearn.com/tutorials/data-structure-tutorial/graphs-in-data-structure">graph </a>is a non-linear kind of data structure made up of nodes or vertices and edges. The edges connect any two nodes in the graph, and the nodes are also known as vertices.</p><p id="34021ffd-41e0-41f9-bf7a-a41fe196dc61" class=""><strong>Graph = Nodes + Edges</strong></p><figure id="1bacd34c-1018-46c4-9cea-eee3635dca7c" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2080.png"><img style="width:1280px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2080.png"/></a></figure><p id="b4b807cd-efd9-4909-b341-8223e98a2410" class="">There are two type of graph, which are <strong>directed graph </strong>and <strong>undirected graph</strong></p><figure id="bf2c9238-4305-4f0f-928d-cfd834514da1" class="image"><a href="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2081.png"><img style="width:848px" src="Data%20Structure%20and%20Algorithm%2075f50bb13e6840e1a8138b55541e54d2/Untitled%2081.png"/></a></figure><p id="5448c34b-598b-4d57-997c-5e1d6ae26771" class=""><strong>Directed Graph → </strong>a graph in which teh edges have a direction. This is usually indictaed with an arrow on the edge. More formally from the graph above, from node A we are able to travel to c and b, but we can not travel from c to a or b to a. </p><p id="f91d13ac-7aa3-40e3-be99-5a01cfcf5a65" class=""><strong>Undirected Graph → </strong>in an undirected graph, the edges are bidirectional, with no direction associated with them. Hence, the graph can be traversed in either direction. The absence of an arrow tells us that the graph is undirected.  In the graph above, we are able to travel from a to c and otherwise, we are also able to travel from c to a. </p></details></li></ul></div></article></body></html>
