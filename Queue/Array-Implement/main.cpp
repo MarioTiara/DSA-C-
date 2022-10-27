@@ -12,6 +12,7 @@ class Queue{
     
     void enqueue(int item);
     int dequeue();
+    void display();
 };
 
 void Queue::enqueue(int item){
@@ -22,8 +23,31 @@ void Queue::enqueue(int item){
         arr[rear]=item;
         cout<<"Item Inserted "<<item<<endl;
     }else{
-        arr[rear++]=item;
+        rear++;
+        arr[rear]=item;
         cout<<"Item Inserted "<<item<<endl;
+    }
+}
+
+int Queue::dequeue(){
+    int item;
+    if (rear==-1){
+        cout<<"Queue underflow"<<endl;
+        return -1;
+    }else{
+        item=arr[front];
+        if (front==rear){
+            front=rear=-1;
+        }else{
+            front++;
+        }
+        return item;
+    }
+}
+
+void Queue::display(){
+    for (auto a :arr){
+        cout<<a<<" ";
     }
 }
 
@@ -31,5 +55,10 @@ int main(){
     Queue queue;
     queue.enqueue(10);
     queue.enqueue(21);
+    queue.display();
+    cout<<endl;
+    cout<<queue.dequeue()<<endl;
+    cout<<queue.dequeue()<<endl;
+    cout<<queue.dequeue()<<endl;
     return 0;
 }
