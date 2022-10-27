@@ -11,7 +11,7 @@ class Stack{
         }
         void push(int item);
         int pop();
-        void peek();
+        int peek();
         void display();
 };
 
@@ -39,13 +39,23 @@ int Stack::pop(){
     }
 }
 
+int Stack::peek(){
+    if (top<0){
+        cout<<"\nStack underflow";
+        return -1;
+    }else{
+        int item=arr[top];
+        return item;
+    }
+}
+
 int main(){
     Stack stack;
     stack.push(23);
     stack.push(43);
    // stack.display();
     cout<<"\npop:"<<stack.pop();
-    cout<<"\npop:"<<stack.pop();
+    cout<<"\npeek:"<<stack.peek();
     stack.display();
     return 0;
 }
