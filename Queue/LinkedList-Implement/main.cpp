@@ -18,3 +18,24 @@ class Queue {
     int dequeue ();
     void display();
 };
+
+void Queue::enqueue(int item){
+    Node * newNode= new Node();
+    newNode->data=item;
+    newNode->next=NULL;
+    if (front==NULL){
+        front=rear=newNode;
+    }else{
+        rear->next=newNode;
+        rear=newNode;
+    }
+}
+
+
+
+int main(){
+    Queue queue;
+    queue.enqueue(21);
+    queue.enqueue(43);
+    return 0;
+}
