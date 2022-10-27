@@ -53,12 +53,26 @@ int Stack::peek(){
     return top->data;
 }
 
+void Stack::display(){
+    Node * temp;
+    if (top==NULL){
+        cout<<"Satck is underflow"<<endl;
+        return;
+    }
+    temp=top;
+    while (temp!=NULL){
+        cout<<temp->data<<" ";
+        temp=temp->next;
+    }
+    
+}
+
 int main(){
     Stack stack;
     stack.push(23);
     stack.push(21);
     stack.push(34);
-    cout<<stack.peek();
+    stack.display();
 
     return 0;
 }
