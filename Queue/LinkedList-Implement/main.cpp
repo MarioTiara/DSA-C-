@@ -33,6 +33,25 @@ void Queue::enqueue(int item){
     cout<<"Element inserted"<<endl;
 }
 
+int Queue::dequeue(){
+    Node * tempPtr;
+    if (front==NULL){
+        cout<<"Queue underflow"<<endl;
+        return -1;
+    }
+    tempPtr=front;
+    if (front==rear){
+        front=rear=NULL;
+    }else{
+        front=front->next;
+        int item=tempPtr->data;
+        delete tempPtr;
+        return item;
+    }
+}
+
+
+
 void Queue::display(){
     Node *temp=front;
     while(temp!=NULL){
@@ -45,8 +64,11 @@ void Queue::display(){
 
 int main(){
     Queue queue;
-    queue.enqueue(21);
+    queue.enqueue(89);
     queue.enqueue(43);
+    queue.enqueue(21);
+    queue.display();
+    cout<<"\n dequeue: "<<queue.dequeue()<<endl;
     queue.display();
     return 0;
 }
