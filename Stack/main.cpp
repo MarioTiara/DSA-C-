@@ -10,8 +10,9 @@ class Stack{
             top=-1;
         }
         void push(int item);
-        void pop();
+        int pop();
         void peek();
+        void display();
 };
 
 void Stack::push(int item){
@@ -19,7 +20,22 @@ void Stack::push(int item){
         cout<<"\nStack Overflow";
     }else{
         arr[++top]=item;
-        cout<<"\nElement added"<<item;
+        cout<<"\nElement added "<<item;
+    }
+}
+
+void Stack::display(){
+    for (int el:arr){
+        cout<<"\n"<<el<<" ";
+    }
+}
+
+int Stack::pop(){
+    if (top<0){
+        cout<<"\nStack underflow";
+    }else{
+        int item=arr[top--];
+        return item;
     }
 }
 
@@ -27,5 +43,9 @@ int main(){
     Stack stack;
     stack.push(23);
     stack.push(43);
+   // stack.display();
+    cout<<"\npop:"<<stack.pop();
+    cout<<"\npop:"<<stack.pop();
+    stack.display();
     return 0;
 }
