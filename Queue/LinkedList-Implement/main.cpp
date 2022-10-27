@@ -29,6 +29,16 @@ void Queue::enqueue(int item){
         rear->next=newNode;
         rear=newNode;
     }
+
+    cout<<"Element inserted"<<endl;
+}
+
+void Queue::display(){
+    Node *temp=front;
+    while(temp!=NULL){
+        cout<<temp->data<<" ";
+        temp=temp->next;
+    }
 }
 
 
@@ -37,5 +47,6 @@ int main(){
     Queue queue;
     queue.enqueue(21);
     queue.enqueue(43);
+    queue.display();
     return 0;
 }
