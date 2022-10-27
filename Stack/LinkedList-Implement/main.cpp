@@ -43,17 +43,22 @@ int Stack::pop(){
     int data=temp->data;
     delete temp;
     return data;
-    
-    
+}
+
+int Stack::peek(){
+    if (top==NULL){
+        cout<<"Stack Underflow"<<endl;
+        return -1;
+    }
+    return top->data;
 }
 
 int main(){
     Stack stack;
     stack.push(23);
     stack.push(21);
-    cout<<stack.pop()<<endl;
-    cout<<stack.pop()<<endl;
-    cout<<stack.pop()<<endl;
+    stack.push(34);
+    cout<<stack.peek();
 
     return 0;
 }
