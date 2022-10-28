@@ -5,7 +5,7 @@ class Node {
     public:
         string data;
         Node * next;
-}
+};
 
 class Boox{
     public:
@@ -16,7 +16,7 @@ class Boox{
     void insert(string data);
     void Delete ();
     void display();
-}
+};
 
 
 void Boox::insert(string data){
@@ -45,6 +45,22 @@ void Boox::Delete(){
 
 }
 
+void Boox::display(){
+    Node * temp= new Node();
+    temp=top;
+    while(temp!=NULL){
+        cout<<temp->data<<" ";
+        temp=temp->next;
+    }
+}
+
 int main(){
+    Boox Bookboox;
+    Bookboox.insert("Book1");
+    Bookboox.insert("Book2");
+    Bookboox.insert("Book3");
+    Bookboox.insert("Book3");
+    Bookboox.display();
+    
     return 0;
 }
