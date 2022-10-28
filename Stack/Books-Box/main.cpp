@@ -78,8 +78,16 @@ void box::insert(string item){
 }
 
 void box::display(){
-    for (auto data: arr){
-        cout<<data<<" ";
+    for (int i=top; i>=0; i--){
+        cout<<arr[i]<<" ";
+    }
+}
+
+void box::Delete(){
+    if(top<0){
+        cout<<"box is underflow"<<endl;
+    }else{
+        top--;
     }
 }
 
@@ -88,7 +96,10 @@ int main(){
     Bookboox.insert("Book1");
     Bookboox.insert("Book2");
     Bookboox.insert("Book3");
-    Bookboox.insert("Book3");
+    Bookboox.insert("Book4");
+    Bookboox.display();
+    Bookboox.Delete();
+    cout<<endl;
     Bookboox.display();
     
     return 0;
