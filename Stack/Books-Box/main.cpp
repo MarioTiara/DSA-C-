@@ -14,7 +14,7 @@ class Boox{
             top=NULL;
         }
     void insert(string data);
-    string delete ();
+    void Delete ();
     void display();
 }
 
@@ -30,6 +30,19 @@ void Boox::insert(string data){
     }
 
     top=newNode;
+}
+
+void Boox::Delete(){
+    Node * temp = new Node();
+    if (top==NULL){
+        cout<<"Box is empty"<<endl;
+    }
+
+    temp=top;
+    top=top->next;
+    cout<<temp->data<<" has deleted"<<endl;
+    delete temp;
+
 }
 
 int main(){
