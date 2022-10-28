@@ -77,13 +77,19 @@ void box::insert(string item){
     }
 }
 
+void box::display(){
+    for (auto data: arr){
+        cout<<data<<" ";
+    }
+}
+
 int main(){
     box Bookboox;
     Bookboox.insert("Book1");
     Bookboox.insert("Book2");
     Bookboox.insert("Book3");
     Bookboox.insert("Book3");
-    //Bookboox.display();
+    Bookboox.display();
     
     return 0;
 }
