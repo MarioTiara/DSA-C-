@@ -1,6 +1,7 @@
 #include <iostream>
 
 using namespace std;
+#define MAX 5
 class Node {
     public:
         string data;
@@ -54,13 +55,35 @@ void Boox::display(){
     }
 }
 
+
+class box{
+    public:
+        int top;
+        string arr [MAX];
+        box(){
+            top=-1;
+        }
+    void insert(string item);
+    void Delete();
+    void display();
+};
+
+void box::insert(string item){
+    if (top>=(MAX-1)){
+        cout<<"box is overflow"<<endl;
+    }else{
+        arr[++top]=item;
+        cout<<item<<" inserted"<<endl;
+    }
+}
+
 int main(){
-    Boox Bookboox;
+    box Bookboox;
     Bookboox.insert("Book1");
     Bookboox.insert("Book2");
     Bookboox.insert("Book3");
     Bookboox.insert("Book3");
-    Bookboox.display();
+    //Bookboox.display();
     
     return 0;
 }
