@@ -7,16 +7,30 @@ class TreeNode {
     public:
         int data;
         TreeNode *left, *right;
-    TreeNode createNewNode(int value);
+        TreeNode(int data){
+            this->data=data;
+        }
+    void insert(int item );
 };
 
-TreeNode TreeNode::createNewNode(int value){
-    TreeNode * newNode = new TreeNode;
-    newNode->data=value;
-    newNode->left=NULL;
-    newNode->right=NULL;
-    return newNode;
+
+void TreeNode::insert(int value ){
+    if (value<=data){
+        if(left==NULL){
+            left=new TreeNode(value);
+        }else{
+            left->insert(value);
+        }
+    }else{
+        if(right==NULL){
+            right= new TreeNode(value);
+        }else{
+            right->insert(value);
+        }
+    }
 }
+
+
 
 int main(){
 
