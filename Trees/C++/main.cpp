@@ -1,39 +1,45 @@
 #include <iostream>
 
+
+
 using namespace std;
 
 
-class TreeNode {
+class Node {
     public:
         int data;
-        TreeNode *left, *right;
-        TreeNode(int data){
-            this->data=data;
-        }
-    void insert(int item );
+        Node *left, *right;
 };
 
+Node * createNewNode(int val){
+    Node * newNode= new Node();
+    newNode->data=val;
+    newNode->left=NULL;
+    newNode->right=NULL;
+    return newNode;
+}
 
-void TreeNode::insert(int value ){
-    if (value<=data){
-        if(left==NULL){
-            left=new TreeNode(value);
-        }else{
-            left->insert(value);
-        }
-    }else{
-        if(right==NULL){
-            right= new TreeNode(value);
-        }else{
-            right->insert(value);
-        }
+Node * insert (Node* root, int value){
+    if (root==NULL){
+        return createNewNode(value);
     }
+    if (root->data<value){
+        root->right=insert(root->right, value);
+    }else if (root->data>value){
+        root->left=insert(root->left, value);
+    }
+
+    return root;
 }
 
 
-
 int main(){
-
+    Node * root =NULL;
+    root=insert(root, 100);
+    root = insert(root,50);
+    root = insert(root,150);
+    root = insert(root,50);
+    
     return 0;
 }
 
